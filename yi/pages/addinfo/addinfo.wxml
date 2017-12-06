@@ -1,0 +1,43 @@
+<!--pages/addinfo/addinfo.wxml-->
+<view class='addinfo'>
+  <view class='addinfo-head'>
+    <text>请设置您的经期数据</text>
+  </view>
+  <view class='addinfo-content'>
+    <view class='addinfo-content-view'>
+      <view class='addinfo-content-view-1'>
+        <text>最近一次来大姨妈的时间</text>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            {{array[index]}}
+          </view>
+        </picker>
+      </view>
+      <view class='addinfo-content-view-2'>
+        <view>
+          <text>周期</text>
+          <text>两次月经开始日期间隔多久</text>
+        </view>
+        <picker bindchange="bindNumChange" value="{{indexnum}}" range="{{arraynum}}">
+          <view class="picker">
+            {{arraynum[indexnum]}}天
+          </view>
+        </picker>
+      </view>
+      <view class='addinfo-content-view-2'>
+        <view>
+          <text>经期</text>
+          <text>您的月经大概持续几天</text>
+        </view>
+        <picker bindchange="bindJiChange" value="{{jnum}}" range="{{jarray}}">
+          <view class="picker">
+            {{jarray[jnum]}}天
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class='addinfo-button'>
+    <button bindtap='nextto'>保存</button>
+  </view>
+</view>

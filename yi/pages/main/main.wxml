@@ -1,0 +1,40 @@
+<view >
+  
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+   style="height:{{winHeight}}rpx">
+    <swiper-item >
+      <scroll-view  class="scoll-h" >
+        111
+      </scroll-view>
+    </swiper-item>
+    <swiper-item >
+      <scroll-view  class="scoll-h" >
+        <view class='ls-index'>
+          <view class='cine' >
+            <view class="cine-infa" wx:key="id" id="{{item.id}}" wx:for="{{infos}}" style='transform:rotate({{item.reg}}deg)' >
+              <view class='fo' class="{{item.class}}"  style='animation-delay:{{item.delay}}'></view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item >
+      <scroll-view  class="scoll-h" >
+        333
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <scroll-view  class="tab-h">
+    <view class='icon-time'>
+      <image src='{{timeicon}}' mode='scaleToFill' s></image>
+    </view>
+    <view class='tab-bs'>
+      <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav"></view>
+      <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav"></view>
+      <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav"></view>
+      </view>
+     <view class='icon-set'>
+      <image src='{{seticon}}' mode='scaleToFill' ></image>
+    </view>
+  </scroll-view>
+</view>
