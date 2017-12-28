@@ -1,0 +1,118 @@
+<!--pages/drink/drink.wxml-->
+<view class='ls-drink'>
+  <view class='ls-drink-1'>
+    <text>人生中超过50%是水，因此人体需要补充足够的水分维持生理机能。一般人每天需要补充1.5-2升的水量。相当于8杯200毫升的水量</text>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第1杯:</text>
+       <text>8:00</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>起床喝杯水，有助于清理肠胃～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.one==1?true:flase}}' bindchange="switch1Change1"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第2杯:</text>
+       <text>9:00</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>工作前喝杯水，提前预存上午所需水分～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.two==1?true:flase}}' bindchange="switch1Change2"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第3杯:</text>
+       <text>11:30</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>午饭前来一杯，补充上午缺失水分～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.three==1?true:flase}}' bindchange="switch1Change3"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第4杯:</text>
+       <text>13:30</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>饭后来杯水，补充水分有助消化～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.four==1?true:flase}}' bindchange="switch1Change4"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第5杯:</text>
+       <text>15:30</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>下午茶时间喝杯茶，让你下午有精神～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.five==1?true:flase}}' bindchange="switch1Change5"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第6杯:</text>
+       <text>17:30</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>下班前喝杯水，缓解工作的疲劳～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.six==1?true:flase}}' bindchange="switch1Change6"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第7杯:</text>
+       <text>19:00</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>新陈代谢巅峰时间来一杯，帮助身体排毒～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.seven==1?true:flase}}' bindchange="switch1Change7"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' bindtap='set'>
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第8杯:</text>
+       <text>20:30</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>睡前2小时来一杯，为夜晚的身体预存水分～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.eight==1?true:flase}}' bindchange="switch1Change8"></switch>
+    </view>
+  </view>
+</view>

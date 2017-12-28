@@ -1,0 +1,34 @@
+<!--pages/mensestart/mensestart.wxml-->
+<view class='ls-mensestart'>
+  <view class='ls-mensestart-1'>
+    <text>排卵日前后爱爱受孕几率较高的，如果还没有准备好要做好安全措施哦</text>
+  </view>
+  <view class='ls-mensestart-2' bindtap='set'>
+    <view>
+      <text>时间</text>
+    </view>
+    <view>
+      <text>{{ay1}}</text>
+      <text>{{ay2}}</text>
+      <text>{{ay3}}</text>
+    </view>
+  </view>
+</view>
+<form  report-submit bindsubmit='formSubmit'>
+ <view class='ls-set-picker' wx:if="{{showPi}}">
+  <view class='ls-set-picker-a'>
+    <button class='ls-set-picker-a-cancle btn' form-type='submit' data-type="cancel" bindtap="tapPiBtn">取消</button>
+    <button class='ls-set-picker-a-confirm btn' form-type='submit' data-type="confirm" bindtap="tapPiBtn">确定</button>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_val}}" bindchange="piChange">
+    <picker-view-column>
+      <view  wx:for="{{array1}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view  wx:for="{{array2}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view  wx:for="{{array3}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view> </form>

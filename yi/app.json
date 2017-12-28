@@ -2,15 +2,21 @@
   "pages": [
     "pages/main/main",
     "pages/addinfo/addinfo",
-    "pages/index/index",
+    "pages/set/set",
+    "pages/remind/remind",
+   "pages/drink/drink",
+    "pages/mensesend/mensesend",
+    "pages/mensestart/mensestart",
+    "pages/tampon/tampon",
+    "pages/pregnant/pregnant",
+    "pages/record/record",
+   "pages/index/index",
     "pages/logs/logs"
-    
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff7778",
-    "navigationBarTitleText": "姨妈助手",
+    "navigationBarTitleText": "姨妈小管家",
     "navigationBarTextStyle": "white"
   }
 }

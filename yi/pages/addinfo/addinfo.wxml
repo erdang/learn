@@ -7,37 +7,70 @@
     <view class='addinfo-content-view'>
       <view class='addinfo-content-view-1'>
         <text>最近一次来大姨妈的时间</text>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view class="picker">
-            {{array[index]}}
+        <view bindtap='pitap2' class='picker'>
+            <text>{{array[daynum2]}}</text>
           </view>
-        </picker>
       </view>
       <view class='addinfo-content-view-2'>
         <view>
           <text>周期</text>
           <text>两次月经开始日期间隔多久</text>
         </view>
-        <picker bindchange="bindNumChange" value="{{indexnum}}" range="{{arraynum}}">
-          <view class="picker">
-            {{arraynum[indexnum]}}天
+         <view bindtap='pitap' class='picker'>
+            <text>{{arraynum[daynum]}}天</text>
           </view>
-        </picker>
       </view>
       <view class='addinfo-content-view-2'>
         <view>
           <text>经期</text>
           <text>您的月经大概持续几天</text>
         </view>
-        <picker bindchange="bindJiChange" value="{{jnum}}" range="{{jarray}}">
-          <view class="picker">
-            {{jarray[jnum]}}天
-          </view>
-        </picker>
+        <view bindtap='pitap3' class='picker'>
+          <text>{{jarray[daynum3]}}天</text>
+        </view>
       </view>
     </view>
   </view>
+  <form  report-submit bindsubmit='formSubmit'>
   <view class='addinfo-button'>
-    <button bindtap='nextto'>保存</button>
+    <button bindtap='nextto' form-type='submit'>保存</button>
   </view>
+  </form>
+</view>
+<view class='ls-set-picker' wx:if="{{showB1}}">
+  <view class='ls-set-picker-a'>
+    <view class='ls-set-picker-a-cancle' data-type="cancel" bindtap="tapcBtn">取消</view>
+    <view class='ls-set-picker-a-confirm' data-type="confirm" bindtap="tapcBtn">确定</view>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_a}}" bindchange="piGet">
+    <picker-view-column>
+      <view  wx:for="{{arraynum}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view> 
+
+ <view class='ls-set-picker' wx:if="{{showB2}}">
+  <view class='ls-set-picker-a'>
+    <view class='ls-set-picker-a-cancle' data-type="cancel" bindtap="tapcBtn2">取消</view>
+    <view class='ls-set-picker-a-confirm' data-type="confirm" bindtap="tapcBtn2">确定</view>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_a2}}" bindchange="piGet2">
+    <picker-view-column>
+      <view  wx:for="{{array}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    
+  </picker-view>
+</view>
+
+<view class='ls-set-picker' wx:if="{{showB3}}">
+  <view class='ls-set-picker-a'>
+    <view class='ls-set-picker-a-cancle' data-type="cancel" bindtap="tapcBtn3">取消</view>
+    <view class='ls-set-picker-a-confirm' data-type="confirm" bindtap="tapcBtn3">确定</view>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_a3}}" bindchange="piGet3">
+    <picker-view-column>
+      <view  wx:for="{{jarray}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    
+  </picker-view>
 </view>

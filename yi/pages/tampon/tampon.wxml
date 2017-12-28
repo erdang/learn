@@ -1,0 +1,78 @@
+<!--pages/drink/drink.wxml-->
+<view class='ls-drink'>
+  <view class='ls-drink-1'>
+    <text>卫生巾最迟3、4小时要更换哦，如果长时间不换的话，会感染的哦</text>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第1次:</text>
+       <text>7:30</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>清早起床出门前，记得要给姨妈换装哦～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.one==1?true:flase}}' bindchange="switch1Change1"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第2次:</text>
+       <text>11:00</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>再忙也别忘了姨妈哦，小心给你颜色看哦～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.two==1?true:flase}}' bindchange="switch1Change2"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第3次:</text>
+       <text>14:30</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>久坐会姨妈”内伤“哦，换垫垫时间到啦～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.three==1?true:flase}}' bindchange="switch1Change3"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第4次:</text>
+       <text>18:00</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>结束了工作的繁忙，别忘了换姨妈巾哦～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.four==1?true:flase}}' bindchange="switch1Change4"></switch>
+    </view>
+  </view>
+  <view class='ls-drink-2' >
+    <view>
+      <view class='ls-drink-2-a'>
+       <text>第5次:</text>
+       <text>21:30</text>
+      </view>
+      <view class='ls-drink-2-b'>
+        <text>夜深了，记得给姨妈换上睡衣哦，晚安咯～</text>
+      </view>
+    </view>
+    <view>
+      <switch color='#90ea8d' checked='{{jsona.five==1?true:flase}}' bindchange="switch1Change5"></switch>
+    </view>
+  </view>
+  
+  
+</view>

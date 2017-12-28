@@ -1,0 +1,17 @@
+<!--pages/record/record.wxml-->
+<scroll-view scroll-y='true' >
+  <view class='ls-record' >
+    <view class='ls-record-1'>
+      <text>经期开始日期</text>
+      <text>经期天数</text>
+      <text>周期天数</text>
+    </view>
+    <view class='ls-record-2'>
+      <text>{{come_day}}</text>
+      <text>{{menses}}</text>
+      <text>{{cycle}}</text>
+    </view>
+    
+  </view>
+</scroll-view>
+

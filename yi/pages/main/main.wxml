@@ -3,38 +3,301 @@
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
    style="height:{{winHeight}}rpx">
     <swiper-item >
-      <scroll-view  class="scoll-h" >
-        111
+      <scroll-view  class="scoll-h">
+          <view class='ls-tongji'>
+              <view class='li-tongji-main'>
+                  <scroll-view scroll-x>
+                        <view class='ls-tongji-1' >
+                          <text wx:for="{{allp}}" wx:key="index">{{item.month}}月</text>
+                          
+                        </view>
+                        <view class='ls-tongji-2'>
+                          <view class='ls-tongji-2-a' wx:for="{{allp}}" wx:key="index">
+                            <view class='ls-tongji-2-a-view1'>
+                              <view>{{item.cycle}}</view>
+                              <view style='width: 38rpx;height: {{item.lheight}}rpx; border-radius: 10rpx;background: #90ea8d;'></view>
+                            </view>
+                            <view class='ls-tongji-2-a-view2'>
+                              <view>{{item.menses}}</view>
+                              <view style='width: 38rpx;height: {{item.mheight}}rpx; border-radius: 10rpx;background: #ff7f80;'></view>
+                            </view>
+                          </view>
+                          
+                        </view>
+                  </scroll-view>
+                  
+                  <view class='ls-tongji-y-c'>
+                    <text>总周期</text>
+                    <text>姨妈期</text>
+                  
+                  </view>
+              </view>
+              <view class='ls-tongji-3'>
+                  <view class='ls-tongji-3-left'>
+                      <view class='ls-tongji-3-left-a'>平均总周期</view>
+                      <view class='ls-tongji-3-left-b'>
+                        <text>{{allday}}</text>
+                        <text>天</text>
+                      </view>
+                  </view>
+                  <view class='ls-tongji-3-left'>
+                      <view class='ls-tongji-3-left-a'>平均姨妈期</view>
+                      <view class='ls-tongji-3-left-b'>
+                        <text>{{yimaday}}</text>
+                        <text>天</text>
+                      </view>
+                  </view>
+              </view>
+              <view class='ls-tongji-4'>
+                <text>{{yimamsg}}</text>
+              </view>
+              
+          </view>
       </scroll-view>
     </swiper-item>
     <swiper-item >
       <scroll-view  class="scoll-h" >
         <view class='ls-index'>
+           <text class='ls-index-mentext' wx:if='{{showMan}}'>我的她：{{wobj.nickName}}</text> 
           <view class='cine' >
-            <view class="cine-infa" wx:key="id" id="{{item.id}}" wx:for="{{infos}}" style='transform:rotate({{item.reg}}deg)' >
-              <view class='fo' class="{{item.class}}"  style='animation-delay:{{item.delay}}'></view>
+            <view wx:key="id" id="{{item.id}}" wx:for="{{infos}}">
+              <view class="cine-infa {{item.classa}}"  style='transform:rotate({{item.reg}}deg)' >
+                
+              </view>
+              <view class='{{item.class}}'   style='transform:rotate({{item.reg}}deg)'>
+                  <image src='{{item.setflower}}' mode='scaleToFill' ></image>
+                  
+                </view>
+                
+            </view>
+            <view class='fo-textb'>
+                <view class='fo-text' wx:key  wx:for="{{infos}}" style='left:{{item.left}};top:{{item.top}}' >{{item.daytip}}</view>
+              </view> 
+          </view>
+          <view class='ls-index-y'>
+            <view class='ls-index-y-a'>
+              <text>第</text>
+              <text>{{infob.day}}</text>
+              <text>天</text>
+            </view>
+            <view class='ls-index-y-b {{infob.clas}}'>
+              <text>{{infob.colo}}</text>
             </view>
           </view>
+          <view class='ls-index-y-c'>
+            <text>姨妈期</text>
+            <text>安全期</text>
+            <text>排卵期</text>
+          </view>
+          
+          <form  report-submit bindsubmit='formSubmit'>
+          <view class='ls-index-y-d' >
+            <view wx:if='{{!showMan}}'>
+               <button class='button ls-red' form-type='submit' wx:if='{{infob.isGo}}' bindtap='piclikc' >姨妈来咯</button>
+                <button class='button ls-green' form-type='submit' wx:if='{{infob.isGo1}}' bindtap='piclikb' >姨妈走咯</button>
+                <view class='ls-index-y-d-1' wx:if='{{infob.isGo3}}'>
+                  <image src='{{comeicon}}' mode='scaleToFill'></image>
+                  <text>姨妈来咯</text>
+                  <image src='{{xiu}}' mode='scaleToFill' bindtap='piclikd'></image>
+                </view>
+                <view class='ls-index-y-d-2' wx:if='{{infob.isGo2}}'>
+                  <image src='{{goicon}}' mode='scaleToFill'></image>
+                  <text>姨妈走咯</text>
+                  <image src='{{xiu}}' mode='scaleToFill' bindtap='piclike'></image>
+                </view>
+            </view>
+           
+             <!-- <picker bindchange="bindPickerChangea" value="{{indexa}}" range="{{arraya}}">
+              <view class="picker">
+                {{arraya[indexa]}}
+              </view>
+            </picker>  -->
+            <view class='ls-tongji-4' wx:if='{{showMan}}'>
+                <text>{{msga}}</text>
+              </view>
+          </view>
+          </form>
         </view>
+      
       </scroll-view>
     </swiper-item>
     <swiper-item >
       <scroll-view  class="scoll-h" >
-        333
+        <view class='ls-rili'>
+            <view class="flex box box-tb box-align-center">
+  <view class="calendar pink-color box box-tb">
+                  <view class="top-handle box box-lr box-align-center box-pack-center">
+                      <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+                          
+                          <image class='prev-handle' mode='scaleToFill' src='{{previcon}}'></image>
+                      </view>
+                      <view bindtap="chooseYearAndMonth" class="date-area box box-lr box-align-center box-pack-center">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+                      <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+                          
+                          <image class='next-handle' mode='scaleToFill' src='{{nexticon}}'></image>
+                      </view>
+                  </view>
+                  <view class="weeks box box-lr box-pack-center box-align-center">
+                      <view class="week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+                  </view>
+                  <view class="days box box-lr box-wrap">
+                      <view wx:if="{{hasEmptyGrid}}" class="grid white-color box box-align-center box-pack-center" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+                      </view>
+                      <view class="grid  " wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="tapDayItem">
+                          <view class='grid-a {{item.choosed ?"bg_active" :" "}} '>
+                                   <view class="day ">{{item.day}}</view>
+                                    <view class='day_bottom'>
+                                      <view class='day_bottom_1 {{item.classa}}'></view>
+                                      <!-- <image class='day_bottom_2' mode='scaleToFill' src='{{loveicon}}'></image> -->
+                                      
+                                      <view class='{{item.day_bottom}}'>
+                                      <view class='{{item.heart}}' wx:if="{{item.islove}}"></view> 
+                                      </view>
+                                    </view>
+                          </view>
+                         
+                      </view>
+                  </view>
+              </view>
+          </view>
+           <view class='ls-rili-y-c'>
+            <text>姨妈期</text>
+            <text>安全期</text>
+            <text>排卵期</text>
+          </view>
+          <view class='ls-rili-love'>
+            <view class='heart2'></view>
+            <text>爱爱记录</text>
+            <switch bindchange="switch2Change" checked='{{ischech}}' color='#90ea8d'/>
+          </view>
+        </view>
       </scroll-view>
     </swiper-item>
   </swiper>
   <scroll-view  class="tab-h">
-    <view class='icon-time'>
-      <image src='{{timeicon}}' mode='scaleToFill' s></image>
+    <view class='icon-time' bindtap='toTixing' wx:if='{{!showMan}}'>
+      <image src='{{timeicon}}' mode='scaleToFill' ></image>
     </view>
     <view class='tab-bs'>
       <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav"></view>
       <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav"></view>
       <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav"></view>
       </view>
-     <view class='icon-set'>
+     <view class='icon-set' bindtap='toSet' wx:if='{{!showMan}}'>
       <image src='{{seticon}}' mode='scaleToFill' ></image>
     </view>
   </scroll-view>
+
+  <view wx:if="{{showPi}}">
+  <view class='ls-index-picker' >
+      <view class='ls-index-picker-a'>
+        <view class='ls-index-picker-a-cancle' data-type="cancel" bindtap="tapPiBtn">
+        
+        <image src='{{cancle}}' mode='scaleToFill' ></image>
+        </view>
+        <view><text>修改姨妈来的日期</text></view>
+        <view class='ls-index-picker-a-confirm' data-type="confirm" bindtap="tapPiBtn">
+        <image src='{{cancle2}}' mode='scaleToFill' ></image>
+        </view>
+      </view>
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_val}}" bindchange="piChange">
+        <picker-view-column>
+          <view  wx:for="{{arraya}}" style="line-height: 50px">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view> 
+   <view class='ls-index-bg'></view>
+  </view>
+  <view wx:if="{{showPid}}">
+  <view class='ls-index-pickerd' >
+      <view class='ls-index-pickerd-a'>
+        <view class='ls-index-pickerd-a-cancle' data-type="cancel" bindtap="tapPiBtnd">
+        
+        <image src='{{cancle}}' mode='scaleToFill' ></image>
+        </view>
+        <view><text>修改姨妈来的日期</text></view>
+        <view class='ls-index-pickerd-a-confirm' data-type="confirm" bindtap="tapPiBtnd">
+        <image src='{{cancle2}}' mode='scaleToFill' ></image>
+        </view>
+      </view>
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_vald}}" bindchange="piChanged">
+        <picker-view-column>
+          <view  wx:for="{{arrayd}}" style="line-height: 50px">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view> 
+   <view class='ls-index-bg'></view>
+  </view>
+     
+
+<view wx:if="{{showB}}">
+    <view class='ls-index-picker' >
+          <view class='ls-index-picker-a'>
+            <view class='ls-index-picker-a-cancle' data-type="cancel" bindtap="tapPiBtnb">
+            <image src='{{cancle}}' mode='scaleToFill' ></image>
+            </view>
+            <view><text>修改姨妈走的日期</text></view>
+            <view class='ls-index-picker-a-confirm' data-type="confirm" bindtap="tapPiBtnb">
+            <image src='{{cancle2}}' mode='scaleToFill' ></image>
+            </view>
+          </view>
+          <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_valb}}" bindchange="piChangeB">
+            <picker-view-column>
+              <view  wx:for="{{arrayb}}" style="line-height: 50px">{{item}}</view>
+            </picker-view-column>
+          </picker-view>
+        </view> 
+    <view class='ls-index-bg'></view>
 </view>
+<view wx:if="{{showBe}}">
+    <view class='ls-index-pickere' >
+          <view class='ls-index-pickere-a'>
+            <view class='ls-index-pickere-a-cancle' data-type="cancel" bindtap="tapPiBtnbe">
+            <image src='{{cancle}}' mode='scaleToFill' ></image>
+            </view>
+            <view><text>修改姨妈走的日期</text></view>
+            <view class='ls-index-pickere-a-confirm' data-type="confirm" bindtap="tapPiBtnbe">
+            <image src='{{cancle2}}' mode='scaleToFill' ></image>
+            </view>
+          </view>
+          <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_vale}}" bindchange="piChangBe">
+            <picker-view-column>
+              <view  wx:for="{{arraye}}" style="line-height: 50px">{{item}}</view>
+            </picker-view-column>
+          </picker-view>
+        </view> 
+    <view class='ls-index-bg'></view>
+</view>
+
+
+    <view wx:if="{{showPicker}}" class="box box-tb yearpicker">
+        <view class="picker-btns box box-lr box-pack-between box-align-center">
+            <view class="picker-btn picker-cancel" data-type="cancel" bindtap="tapPickerBtn">取消</view>
+            <view class="picker-btn picker-confirm" data-type="confirm" bindtap="tapPickerBtn">确定</view>
+        </view>
+        <picker-view class="flex" indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_value}}" bindchange="pickerChange">
+            <picker-view-column>
+                <view class="picker-view" wx:for="{{picker_year}}" style="line-height: 50px">{{item}}年</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view class="picker-view" wx:for="{{picker_month}}" style="line-height: 50px">{{item}}月</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view>
+ 
+<view class='tishi' wx:if='{{showMan2}}'>
+
+<view class='cover-bg'>
+
+</view>
+<view class='cover-content'>
+  <view class='cover-name4'><image src='{{wobj.avatarUrl}}' class='cover-content-bg' mode='scaleToFill'></image></view>
+  <view class='cover-name1'>{{wobj.nickName}}</view>
+  <view class='cover-name2'>邀请你开始甜蜜爱情之旅</view>
+  <view class='cover-name3'>
+    <view bindtap='taperror'>搞错啦</view>
+    <view bindtap='tapyes'>就是Ta</view>
+  </view >
+</view>
+</view> 

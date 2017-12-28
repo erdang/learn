@@ -11,3 +11,18 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view>
+<view class='cine' >
+  <view wx:key="id" id="{{item.id}}" wx:for="{{infos}}">
+    <view class="cine-infa {{item.classa}}"  style='transform:rotate({{item.reg}}deg)' >
+      <view class='{{item.class}}'   style='animation-delay:{{item.delay}}'>
+        <image src='{{item.setflower}}' mode='scaleToFill' ></image>
+        
+      </view>
+    </view>
+    
+      
+  </view>
+  <view class='fo-textb'>
+      <view class='fo-text' wx:for="{{infos}}" style='left:{{item.left}};top:{{item.top}}' >{{item.daytip}}</view>
+    </view> 
+</view>

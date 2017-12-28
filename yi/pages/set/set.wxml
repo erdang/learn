@@ -1,0 +1,128 @@
+<!--pages/set/set.wxml-->
+<view class='ls-set'>
+  <view class='ls-set-bind'>
+    <view>
+      <text>绑定男友</text>
+    </view>
+    
+    <view>
+       <text wx:if='{{isBindShowb}}'>还没有绑定男友</text>
+       <text wx:if='{{!isBindShowb}}'>{{binduser.alias}}</text>
+       <button bindtap='bindN' wx:if='{{isBindShowb}}'>还没有绑定男友</button>
+       <button wx:if='{{!isBindShowb}}' bindtap='unbindN'>解绑男友</button>
+       <image mode='scaleToFill' src='{{rightnext}}'></image>
+    </view>
+   
+  </view>
+  <view class='ls-set-jilu'>
+    <view>
+      <text>所有姨妈记录</text>
+    </view>
+    <view bindtap='toYiji'>
+       <image mode='scaleToFill' src='{{rightnext}}'></image>
+    </view>
+   
+  </view>
+  <view class='ls-set-set'>
+    <view>
+      <text>修改姨妈周期</text>
+    </view>
+    <view bindtap='piclikc'>
+       <text>{{arraynum[daynum]}}天</text>
+    </view>
+   
+  </view>
+  <view class='ls-set-set'>
+    <view>
+      <text>修改最近一次姨妈时间</text>
+    </view>
+    <view bindtap='piclikc2'>
+       <text>{{array[daynum2]}}</text>
+    </view>
+   
+  </view>
+  <view class='ls-set-set'>
+    <view>
+      <text>修改姨妈期天数</text>
+    </view>
+    <view bindtap='piclikc3'>
+       <text>{{jarray[daynum3]}}天</text>
+    </view>
+   
+  </view>
+  
+</view>
+<form  report-submit bindsubmit='formSubmit'>
+<view class='addinfo-button'>
+    <button bindtap='nextto' form-type='submit'>保存</button>
+  </view>
+</form>
+<form  report-submit bindsubmit='formSubmit'>
+ <view class='ls-set-picker' wx:if="{{showPi}}">
+  <view class='ls-set-picker-a'>
+    <button class='ls-set-picker-a-cancle btn' form-type='submit' data-type="cancel" bindtap="tapPiBtn">取消</button>
+    <button class='ls-set-picker-a-confirm btn' form-type='submit' data-type="confirm" bindtap="tapPiBtn">确定</button>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_val}}" bindchange="piChange">
+    <picker-view-column>
+      <view  wx:for="{{arraynum}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view> 
+</form>
+<form  report-submit bindsubmit='formSubmit'>
+ <view class='ls-set-picker' wx:if="{{showPi2}}">
+  <view class='ls-set-picker-a'>
+    <button class='ls-set-picker-a-cancle btn' form-type='submit' data-type="cancel" bindtap="tapPiBtn2">取消</button>
+    <button class='ls-set-picker-a-confirm btn' form-type='submit' data-type="confirm" bindtap="tapPiBtn2">确定</button>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_val2}}" bindchange="piChange2">
+    <picker-view-column>
+      <view  wx:for="{{array}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    
+  </picker-view>
+</view>
+</form>
+<form  report-submit bindsubmit='formSubmit'>
+<view class='ls-set-picker' wx:if="{{showPi3}}">
+  <view class='ls-set-picker-a'>
+    <button class='ls-set-picker-a-cancle btn' form-type='submit' data-type="cancel" bindtap="tapPiBtn3">取消</button>
+    <button class='ls-set-picker-a-confirm btn' form-type='submit' data-type="confirm" bindtap="tapPiBtn3">确定</button>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_val3}}" bindchange="piChange3">
+    <picker-view-column>
+      <view  wx:for="{{jarray}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    
+  </picker-view>
+</view>
+</form>
+<view class='tishi' wx:if='{{isBindShow}}'>
+
+<view class='cover-bg'>
+
+</view>
+<view class='cover-content'>
+  <image src='{{bgicon}}' class='cover-content-bg' mode='scaleToFill'></image>
+  <image src='{{closeicon}}' class='cover-content-close' bindtap='closeTi' mode='scaleToFill'></image>
+  <button open-type="share">绑定男朋友</button>
+</view>
+</view>
+
+
+<view class='tishi' wx:if='{{showA}}'>
+
+<view class='cover-bg1'>
+
+</view>
+<view class='cover-content1'>
+  <view class='cover-name4'><image src='{{binduser.spic}}' class='cover-content-bg1' mode='scaleToFill'></image></view>
+  <view class='cover-name1'>{{binduser.alias}}</view>
+  <view class='cover-name2'>你确定与Ta解除绑定关系吗？</view>
+  <view class='cover-name3'>
+    <view bindtap='taperror'>取消</view>
+    <view bindtap='tapyes'>解除绑定</view>
+  </view >
+</view>
+</view> 

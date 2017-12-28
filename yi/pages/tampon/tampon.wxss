@@ -1,0 +1,12 @@
+/* pages/drink/drink.wxss */
+page{background: #f3f3f3;}
+.ls-drink-1{font-size: 28rpx; color: #948383; padding: 30rpx 42rpx;}
+
+.ls-drink-2{ height: 124rpx;display: flex; justify-content:space-between;background: #fff;padding-left: 40rpx;}
+.ls-drink-2 view:nth-of-type(1){color: #543030; font-size: 34rpx;}
+.ls-drink-2 view:nth-of-type(2){color: #b6acac; font-size: 24rpx;margin-right: 40rpx;position: relative; text-align: right;  }
+.ls-drink-2 view:nth-of-type(2) switch{line-height: 122rpx;}
+.ls-drink-2-a{height: 50rpx; line-height: 50rpx;margin-top: 20rpx;}
+.ls-drink-2-b{height: 42rpx; line-height: 42rpx;}
+.ls-drink-2-a text:nth-of-type(1){margin-right: 20rpx;}
+

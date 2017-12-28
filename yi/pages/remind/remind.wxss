@@ -1,0 +1,22 @@
+/* pages/remind/remind.wxss */
+page{background: #f5f5f5;}
+.ls-remind{padding-top: 20rpx;}
+.ls-remind-1{background: #fff;height: 190rpx; padding-left: 30rpx;padding-right: 20rpx;margin-bottom: 10rpx;}
+.ls-remind-1-top-image1 image{width: 34rpx; height: 40rpx;vertical-align: middle; margin-top: 42rpx; margin-right: 30rpx;}
+.ls-remind-1-top-image2 image{width: 34rpx; height: 40rpx;vertical-align: middle; margin-top: 42rpx; margin-right: 30rpx;}
+.ls-remind-1-top-image3 image{width: 31rpx; height: 42rpx;vertical-align: middle; margin-top: 42rpx; margin-right: 30rpx;}
+.ls-remind-1-top-image4 image{width: 40rpx; height: 39rpx;vertical-align: middle; margin-top: 42rpx; margin-right: 30rpx;}
+.ls-remind-1-top-image5 image{width: 42rpx; height: 42rpx;vertical-align: middle; margin-top: 42rpx; margin-right: 30rpx;}
+.ls-remind-1-top{display: flex;justify-content: space-between;border-bottom: 2rpx solid #f3f3f3;height: 122rpx;}
+.ls-remind-1-top-a{display: flex;}
+.ls-remind-1-top-text view:nth-of-type(1) text{font-size:30rpx;  color: #543030;}
+.ls-remind-1-top-text view:nth-of-type(2) text{font-size:24rpx;  color: #b6acac;}
+.ls-remind-1-top-text view:nth-of-type(1){line-height: 50rpx; height: 50rpx; margin-top: 20rpx;}
+.ls-remind-1-top-text view:nth-of-type(2){line-height: 40rpx; height: 40rpx;}
+.ls-remind-1-bottom{font-size:24rpx;  color: #b6acac; line-height: 66rpx;}
+.ls-remind-1-top-b{height: 122rpx; line-height: 122rpx;}
+
+
+
+
+

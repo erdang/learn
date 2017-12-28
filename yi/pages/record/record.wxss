@@ -1,0 +1,7 @@
+/* pages/record/record.wxss */
+
+.ls-record-1{height: 68rpx; line-height: 68rpx; color: #543030;font-size: 30rpx; border-bottom: 2rpx solid #f3f3f3; display: flex; justify-content: space-between; margin-top: 10rpx;padding-left: 30rpx; padding-right: 30rpx;}
+.ls-record-2{height: 90rpx; line-height: 90rpx; color: #543030;font-size: 28rpx; border-bottom: 2rpx solid #f3f3f3; display: flex; justify-content:flex-start; margin-top: 10rpx;margin-left: 20rpx; }
+.ls-record-2 text:nth-of-type(1){width: 200rpx;text-align: center; }
+.ls-record-2 text:nth-of-type(2){width: 120rpx;text-align: center;margin-left: 124rpx; margin-right: 138rpx; }
+.ls-record-2 text:nth-of-type(3){width: 120rpx; text-align: center;}

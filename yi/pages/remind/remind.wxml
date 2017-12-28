@@ -1,0 +1,109 @@
+<!--pages/remind/remind.wxml-->
+<view class='ls-remind'>
+  <view class='ls-remind-1'>
+  <form  report-submit bindsubmit='formSubmit'>
+    <view class='ls-remind-1-top' > 
+    
+    
+      <view class='ls-remind-1-top-a' bindtap='tojingStart'>
+        <view class='ls-remind-1-top-image1'>
+          <image src='{{icon1}}' mode='scaleToFill'></image>
+          </view>
+          <view class='ls-remind-1-top-text'>
+            <view><text>{{json1.title}}</text></view>
+            <view><text>{{json1.title_msg}}</text></view>
+          </view>
+      </view>    
+       
+      <view class='ls-remind-1-top-b'>
+       <switch color='#90ea8d' checked='{{json1.switch1==1?true:flase}}' bindchange="switch1Change1"> </switch>
+      </view>
+      
+    </view>
+    
+    </form>
+    <view class='ls-remind-1-bottom'>
+      <text>{{json1.sub_msg}}</text>
+    </view>
+  </view>
+  <view class='ls-remind-1'>
+    <view class='ls-remind-1-top'> 
+      <view class='ls-remind-1-top-a' bindtap='tojingEnd'>
+        <view class='ls-remind-1-top-image2'>
+          <image src='{{icon2}}' mode='scaleToFill'></image>
+          </view>
+          <view class='ls-remind-1-top-text'>
+            <view><text>{{json2.title}}</text></view>
+            <view><text>{{json2.title_msg}}</text></view>
+          </view>
+      </view>    
+      
+      <view class='ls-remind-1-top-b'>
+       <switch color='#90ea8d' bindchange="switch1Change2" checked='{{json2.switch1==1?true:flase}}'></switch>
+      </view>
+    </view>
+    <view class='ls-remind-1-bottom'>
+      <text>{{json2.sub_msg}}</text>
+    </view>
+  </view>
+  <view class='ls-remind-1'>
+    <view class='ls-remind-1-top'> 
+      <view class='ls-remind-1-top-a' bindtap='tojingDrink'>
+        <view class='ls-remind-1-top-image3'>
+          <image src='{{icon3}}' mode='scaleToFill'></image>
+          </view>
+          <view class='ls-remind-1-top-text'>
+            <view><text>{{json3.title}}</text></view>
+            <view><text>{{json3.title_msg}}</text></view>
+          </view>
+      </view>    
+      
+      <view class='ls-remind-1-top-b'>
+       <switch color='#90ea8d' bindchange="switch1Change3" checked='{{json3.switch1==1?true:flase}}'></switch>
+      </view>
+    </view>
+    <view class='ls-remind-1-bottom'>
+      <text>{{json3.sub_msg}}</text>
+    </view>
+  </view>
+  <view class='ls-remind-1'>
+    <view class='ls-remind-1-top'> 
+      <view class='ls-remind-1-top-a' bindtap='tojingTampon'>
+        <view class='ls-remind-1-top-image4'>
+          <image src='{{icon4}}' mode='scaleToFill'></image>
+          </view>
+          <view class='ls-remind-1-top-text'>
+            <view><text>{{json4.title}}</text></view>
+            <view><text>{{json4.title_msg}}</text></view>
+          </view>
+      </view>    
+      
+      <view class='ls-remind-1-top-b'>
+       <switch color='#90ea8d' bindchange="switch1Change4" checked='{{json4.switch1==1?true:flase}}'></switch>
+      </view>
+    </view>
+    <view class='ls-remind-1-bottom'>
+      <text>{{json4.sub_msg}}</text>
+    </view>
+  </view>
+  <view class='ls-remind-1'>
+    <view class='ls-remind-1-top'> 
+      <view class='ls-remind-1-top-a' bindtap='tojingPre'>
+        <view class='ls-remind-1-top-image5'>
+          <image src='{{icon5}}' mode='scaleToFill'></image>
+          </view>
+          <view class='ls-remind-1-top-text'>
+            <view><text>{{json5.title}}</text></view>
+            <view><text>{{json5.title_msg}}</text></view>
+          </view>
+      </view>    
+      
+      <view class='ls-remind-1-top-b'>
+       <switch color='#90ea8d' bindchange="switch1Change5" checked='{{json5.switch1==1?true:flase}}'></switch>
+      </view>
+    </view>
+    <view class='ls-remind-1-bottom'>
+      <text>{{json5.sub_msg}}</text>
+    </view>
+  </view>
+</view>
