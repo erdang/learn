@@ -33,10 +33,14 @@ Page({
     this.saveFormIds();
      let Dat=new Date();
      let ayy=[];
+     let yeab=[];
      let nowd = Dat.getTime() - (44 * 24 * 3600 * 1000);
      for(let i=0;i<=44;i++){
        let gDate = new Date(parseInt(nowd) + i  * 24 * 3600 * 1000);
        let gd = add((gDate.getMonth() + 1)) + '月' + add(gDate.getDate()) + '日';
+     
+       let yea = gDate.getFullYear();
+       yeab.push(yea);
        ayy.push(gd);
      }
      let listobj={
@@ -65,23 +69,30 @@ Page({
       arraynum: anum,
       indexnum: 0,
       jarray: bnum,
-      jnum: 0
+      jnum: 0,
+      yeab:yeab
     });
   },
 
   pitap: function (e) {
     this.setData({
       showB1: true,
+      showB2: false,
+      showB3: false
     });
   },
   pitap2: function (e) {
     this.setData({
+      showB1: false,
       showB2: true,
+      showB3: false
     });
   },
   pitap3: function (e) {
     this.setData({
-      showB3: true,
+      showB1: false,
+      showB2: false,
+      showB3: true
     });
   },
   piGet: function (e) {
@@ -155,10 +166,10 @@ Page({
   },
   nextto:function(){
     let Dat = new Date();
-    let year = Dat.getFullYear();
+    let year = this.data.yeab[this.data.daynum2];
     let montth = this.data.array[this.data.daynum2].substring(0, 2);
     let day = this.data.array[this.data.daynum2].substring(3, 5);
-
+  
     wx.setStorage({
       key: "lista",
       data: {

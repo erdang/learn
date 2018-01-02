@@ -588,7 +588,7 @@ Page({
       
   
   },
-  tapPiBtn(e) {
+  tapPiBtn(e) {//姨妈来了 按钮
     const type = e.currentTarget.dataset.type;
     const o = {
       showPi: false,
@@ -601,7 +601,7 @@ Page({
       }
       var that = this;
       var Dat = new Date();
-      var year = Dat.getFullYear();
+      var year = this.data.yeac[this.data.picker_val];
       
       var montth = this.data.arraya[this.data.picker_val].substring(0, 2);
       var day = this.data.arraya[this.data.picker_val].substring(3, 5);
@@ -650,7 +650,7 @@ Page({
       }
       var that = this;
       var Dat = new Date();
-      var year = Dat.getFullYear();
+      var year = this.data.yead[this.data.picker_vald];
 
       var montth = this.data.arrayd[this.data.picker_vald].substring(0, 2);
       var day = this.data.arrayd[this.data.picker_vald].substring(3, 5);
@@ -699,7 +699,7 @@ Page({
       }
       var that = this;
       var Dat = new Date();
-      var year = Dat.getFullYear();
+      var year = this.data.yeab[this.data.picker_valb];
 
       var montth = this.data.arrayb[this.data.picker_valb].substring(0, 2);
       var day = this.data.arrayb[this.data.picker_valb].substring(3, 5);
@@ -764,7 +764,7 @@ Page({
       }
       var that = this;
       var Dat = new Date();
-      var year = Dat.getFullYear();
+      var year = this.data.yeae[this.data.picker_vale];
 
       var montth = this.data.arraye[this.data.picker_vale].substring(0, 2);
       var day = this.data.arraye[this.data.picker_vale].substring(3, 5);
@@ -844,10 +844,11 @@ Page({
       picker_vale: e.detail.value
     })
   },
-  piclikc:function(e){
+  piclikc:function(e){//按钮 姨妈来了
     var Dat = new Date();
     var ayy = [];
     var ayyb = [];
+    var yeac=[];
     var nowd = Dat.getTime() - (44 * 24 * 3600 * 1000);
     var nowf = Dat.getTime() - (6 * 24 * 3600 * 1000);
     function add(n) {
@@ -856,8 +857,10 @@ Page({
     for (let i = 0; i <= 44; i++) {
       var gDate = new Date(parseInt(nowd) + i * 24 * 3600 * 1000);
       var gd = add((gDate.getMonth() + 1)) + '月' + add(gDate.getDate()) + '日';
-
+      var yea = gDate.getFullYear();
+      yeac.push(yea);
       ayy.push(gd);
+     
 
     }
     var that=this;
@@ -878,12 +881,14 @@ Page({
     this.setData({
       showPi: true,
       arraya: ayy,
+      yeac:yeac
     });
   },
   piclikd: function (e) {
     var Dat = new Date();
     var ayy = [];
     var ayyb = [];
+    var yead=[];
     var nowd = Dat.getTime() - (44 * 24 * 3600 * 1000);
     var nowf = Dat.getTime() - (6 * 24 * 3600 * 1000);
     function add(n) {
@@ -892,7 +897,8 @@ Page({
     for (let i = 0; i <= 44; i++) {
       var gDate = new Date(parseInt(nowd) + i * 24 * 3600 * 1000);
       var gd = add((gDate.getMonth() + 1)) + '月' + add(gDate.getDate()) + '日';
-
+      var yea = gDate.getFullYear();
+      yead.push(yea);
       ayy.push(gd);
 
     }
@@ -914,12 +920,14 @@ Page({
     this.setData({
       showPid: true,
       arrayd: ayy,
+      yead:yead
     });
   },
   piclikb: function (e) {
     var Dat = new Date();
     var ayy = [];
     var ayyb = [];
+    var yeab=[];
     var nowd = Dat.getTime() - (44 * 24 * 3600 * 1000);
     var nowf = Dat.getTime() - (6 * 24 * 3600 * 1000);
     function add(n) {
@@ -928,18 +936,22 @@ Page({
     for (let i = 0; i < 7; i++) {
       var gDate = new Date(parseInt(nowf) + i * 24 * 3600 * 1000);
       var gd = add((gDate.getMonth() + 1)) + '月' + add(gDate.getDate()) + '日';
+      var yea = gDate.getFullYear();
+      yeab.push(yea);
       ayyb.push(gd);
 
     }
     this.setData({
       showB: true,
       arrayb: ayyb,
+      yeab:yeab
     });
   },
   piclike: function (e) {
     var Dat = new Date();
     var ayy = [];
     var ayyb = [];
+    var yeae=[];
     var nowd = Dat.getTime() - (44 * 24 * 3600 * 1000);
     var nowf = Dat.getTime() - (6 * 24 * 3600 * 1000);
     function add(n) {
@@ -948,12 +960,15 @@ Page({
     for (let i = 0; i < 7; i++) {
       var gDate = new Date(parseInt(nowf) + i * 24 * 3600 * 1000);
       var gd = add((gDate.getMonth() + 1)) + '月' + add(gDate.getDate()) + '日';
+      var yea = gDate.getFullYear();
+      yeae.push(yea);
       ayyb.push(gd);
 
     }
     this.setData({
       showBe: true,
       arraye: ayyb,
+      yeae:yeae
     });
   },
   // 计算每月有多少天

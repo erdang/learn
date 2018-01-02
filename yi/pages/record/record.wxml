@@ -6,10 +6,11 @@
       <text>经期天数</text>
       <text>周期天数</text>
     </view>
-    <view class='ls-record-2'>
-      <text>{{come_day}}</text>
-      <text>{{menses}}</text>
-      <text>{{cycle}}</text>
+
+    <view class='ls-record-2' wx:for="{{dataman}}" wx:key="index">
+      <text>{{item.come_day}}</text>
+      <text>{{item.menses}}</text>
+      <text>{{item.cycle}}</text>
     </view>
     
   </view>

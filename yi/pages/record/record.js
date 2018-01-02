@@ -100,16 +100,18 @@ Page({
       method:'GET',
       success:function(r){
           console.log(r);
+          var dataman=[];
           for (var i = 0; i < r.data.content.list.length;i++){
-            var come_day = r.data.content.list[i].come_day;
-            var cycle = r.data.content.list[i].cycle;
-            var menses = r.data.content.list[i].menses;
+          
+            dataman.push({
+              come_day: r.data.content.list[i].come_day,
+              cycle: r.data.content.list[i].cycle,
+              menses: r.data.content.list[i].menses
+            });
           }
           
         that.setData({
-          come_day,
-          cycle,
-          menses
+          dataman: dataman
         });
       }
     })
