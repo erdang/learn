@@ -172,6 +172,23 @@ console.log(res)
 //(?!exp) 这个就是说字符出现的位置的右边不能是exp这个表达式。
 //(?<=exp) 这个就是说字符出现的位置的前边是exp这个表达式。
 //(?<!exp) 这个就是说字符出现的位置的前边不能是exp这个表达式。
+var str = "i'm singing and dancing";
+var reg = /\b(\w+(?=ing\b))/g
+var res = str.match(reg);
+console.log(res)
+// ["sing", "danc"]
+
+
+// 注意一点，这里说到的是位置，不是字符。
+// var str = 'abc';
+// var reg = /a(?=b)c/;
+// console.log(res.test(str));  // false
+
+// // 这个看起来似乎是正确的，实际上结果是false
+// reg中a(?=b)匹配字符串'abc' 字符串a的右边是b这个匹配没问题,接下来reg中a(?=b)后边的c匹配字符串时是从字符串'abc'中a的后边b的前边的这个位置开始匹配的，
+// 这个相当于/ac/匹配'abc',显然结果是false了
+
+
 
 
 var rgx = /\d{4}(\-|\/|.)\d{1,2}(\-|\/|.)\d{1,2}/
@@ -191,3 +208,24 @@ var rgx = /\d{4}(\-|\/|.)\d{1,2}(\-|\/|.)\d{1,2}/
  var sts = '<div id="">dasdas</div><p>dwqdqwd</p>'
  var rg = /(?<=\>).[^\<\>]+(?=\<\/)/
  
+
+
+var ds = '$10000000';
+var rss= /(\d)(?=\d{3}+$)/
+ds.replace(rss,"$1,") //$10,000,000
+
+
+// 完成一个函数isUSDFormat 返回true/false 来判断一个字符串是否符合美元格式:
+// 1.以$开头
+// 2 如果是小数，保留两位小数;如果不是小数则不显示小数部分
+// 3.整数部分从小数点上一位开始每隔三位用，分割开来
+// 4.如果整数部分从数字0 开始，则只会显示一位8
+// 例如:
+// isUSDFormat('$1')//= > true
+// isUSDFormat('$1.8')//=> false
+// isUSDFormat('$108,009.08')//=> true
+// isUSDFormat('$8,888.88)//=> false
+// isUSDFormat('$0.0')//=> true
+// isUSDFormat('$11,23,345.33')//=> false
+// isUSDFormat('$1,123,345.33')//=> true
+var r = /^\$(0|[1-9]\d{0,2})(\,\d{3})*(\.[0-9]{2})?$/
