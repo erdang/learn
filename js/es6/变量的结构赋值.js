@@ -144,7 +144,7 @@ let { id, status, data: number } = jsonData;
 
 console.log(id, status, number);
 // 42, "OK", [867, 5309]
-//函数参数的默认值
+//函数参数的默认值(变量)
 jQuery.ajax = function (url, {
   async = true,
   beforeSend = function () {},
@@ -153,7 +153,7 @@ jQuery.ajax = function (url, {
   crossDomain = false,
   global = true,
   // ... more config
-}) {
+}={}) {
   // ... do stuff
 };
 //指定参数的默认值，就避免了在函数体内部再写var foo = config.foo || 'default foo';这样的语句。
