@@ -24,6 +24,11 @@ s.codePointAt(0).toString(16) // "20bb7"
 s.codePointAt(2).toString(16) // "61"
 // 你可能注意到了，codePointAt方法的参数，仍然是不正确的。比如，上面代码中，字符a在字符串s的正确位置序号应该是 1，但是必须向codePointAt方法传入 2。解决这个问题的一个办法是使用for...of循环，因为它会正确识别 32 位的 UTF-16 字符。
 
+//判断字符包含了一个还是两个码元，对该字符调用 codePointAt() 方法就是最简单的方法function is32Bit(c) {
+  function is32Bit(c) {
+    return c.codePointAt(0) > 0xFFFF;
+  }
+
 let s = '𠮷a';
 for (let ch of s) {
   console.log(ch.codePointAt(0).toString(16));
@@ -69,3 +74,13 @@ for (let i of text) {
 // 'na'.repeat(2.9) // "nana"
 // 如果repeat的参数是负数或者Infinity，会报错。
 //参数是字符串，则会先转换成数字。 参数NaN等同于 0 ,如果参数是 0 到-1 之间的小数，则等同于 0，这是因为会先进行取整运算。0 到-1 之间的小数，取整以后等于-0，repeat视同为 0。
+
+
+//padStart()用于头部补全，padEnd()用于尾部补全。
+//padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。
+//如果省略第二个参数，默认使用空格补全长度
+'x'.padStart(5, 'ab') // 'ababx'
+'x'.padStart(4, 'ab') // 'abax'
+
+'x'.padEnd(5, 'ab') // 'xabab'
+'x'.padEnd(4, 'ab') // 'xaba'
