@@ -84,3 +84,64 @@ for (let i of text) {
 
 'x'.padEnd(5, 'ab') // 'xabab'
 'x'.padEnd(4, 'ab') // 'xaba'
+
+
+//正则 
+//参数是一个正则表示式，这时会返回一个原有正则表达式的拷贝,ES5 不允许此时使用第二个参数添加修饰符，否则会报错
+var regex = new RegExp(/xyz/i);
+// 等价于
+var regex = /xyz/i;
+
+// ES6 改变了这种行为。如果RegExp构造函数第一个参数是一个正则对象，那么可以使用第二个参数指定修饰符。而且，返回的正则表达式会忽略原有的正则表达式的修饰符，只使用新指定的修饰符。
+
+new RegExp(/abc/ig, 'i').flags// i覆盖ig
+
+//u 修饰符 “Unicode 模式用来正确处理大于\uFFFF的 Unicode 字符。也就是说，会正确处理四个字节的 UTF-16 编码
+function codelength(r){ //返回字符的长度
+  let result = r.match(/[\s\S]/gu)
+  return result?result.length:0
+}
+var s = '𠮷𠮷';
+
+s.length // 4
+codelength(s) // 2
+//exec 和test 正则对象的方法  只有这时lastindex（匹配起始位置） 才起作用
+//y修饰符 粘连”（sticky）修饰符。y修饰符的作用与g修饰符类似，也是全局匹配，后一次匹配都从上一次匹配成功的下一个位置开始。不同之处在于，g修饰符只要剩余位置中存在匹配就可，而y修饰符确保匹配必须从剩余的第一个位置开始，这也就是“粘连”的涵义
+
+var r = /hello\d/y;
+r.sticky //表示是否设置了y修饰符。
+// ES5 的 source 属性
+// 返回正则表达式的正文
+/abc/ig.source
+// "abc"
+
+// ES6 的 flags 属性
+// 返回正则表达式的修饰符
+/abc/ig.flags
+// 'gi'
+
+//先行断言
+//x(?=y) 要匹配的字符X的右边必须 符合y  
+//x(?!y) 要匹配的字符X的右边必须不 符合y
+
+//后行断言 后行断言”的实现，需要先匹配/(?<=y)x/的x，然后再回到左边，匹配y的部分。这种“先右后左”的执行顺序
+
+ //(?<=y)x 要匹配的字符X的左边必须 符合y 
+ //(?<!y)x 要匹配的字符X的左边必须不 符合y
+
+
+ //正则表达式里面有三组圆括号。使用exec方法，就可以将这三组匹配结果提取出来。
+ 
+ const RE_DATE = /(\d{4})-(\d{2})-(\d{2})/;
+ 
+ const matchObj = RE_DATE.exec('1999-12-31');
+ const year = matchObj[1]; // 1999
+ const month = matchObj[2]; // 12
+ const day = matchObj[3]; // 31
+//具名组匹配”在圆括号内部，模式的头部添加“问号 + 尖括号 + 组名”（?<year>），然后就可以在exec方法返回结果的groups属性上引用该组名。同时，数字序号（matchObj[1]）依然有效。
+ const RE_DATE = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+ 
+ const matchObj = RE_DATE.exec('1999-12-31');
+ const year = matchObj.groups.year; // 1999
+ const month = matchObj.groups.month; // 12
+ const day = matchObj.groups.day; // 31
