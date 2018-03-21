@@ -44,7 +44,10 @@ Object.defineProperty(Object, 'is', {
   writable: true
 });
 
-// Object.defineProperty定义新属性或修改原有的属性 ie8以上
+//Object.defineProperties()方法直接在一个对象上定义一个或多个新的属性或修改现有属性，并返回该对象。
+//语法: Object.defineProperties(obj, props)
+
+// Object.defineProperty定义一个新属性或修改原有的属性 ie8以上 
 // obj：必需。目标对象 
 // prop：必需。需定义或修改的属性的名字
 // descriptor：必需。目标属性所拥有的特性
@@ -136,3 +139,121 @@ function processContent(options) {
   console.log(options);
   // ...
 }
+
+
+
+// 有四个操作会忽略enumerable为false的属性。
+
+// for...in循环：只遍历对象自身的和继承的可枚举的属性。
+// Object.keys()：返回对象自身的所有可枚举的属性的键名。
+// JSON.stringify()：只串行化对象自身的可枚举的属性。
+// Object.assign()： 忽略enumerable为false的属性，只拷贝对象自身的可枚举的属性。
+//尽量不要用for...in循环，而用Object.keys()代替
+// 1）for...in
+
+// for...in循环遍历对象自身的和继承的可枚举属性（不含 Symbol 属性）。
+
+// （2）Object.keys(obj)
+
+// Object.keys返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名。
+
+// （3）Object.getOwnPropertyNames(obj)
+
+// Object.getOwnPropertyNames返回一个数组，包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名。
+
+// （4）Object.getOwnPropertySymbols(obj)
+
+// Object.getOwnPropertySymbols返回一个数组，包含对象自身的所有 Symbol 属性的键名。
+
+// （5）Reflect.ownKeys(obj)
+
+// Reflect.ownKeys返回一个数组，包含对象自身的所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举。
+
+//Object.getOwnPropertyDescriptor方法可以获取该属性的描述对象
+//  {
+//    value: 123,
+//    writable: true,
+//    enumerable: true,
+//    configurable: true
+//  }
+
+//ES2017 引入了Object.getOwnPropertyDescriptors方法，返回指定对象所有自身属性（非继承属性）的描述对象。
+//该方法的引入目的，主要是为了解决Object.assign()无法正确拷贝get属性和set属性的问题
+const source = {
+  set foo(value) {
+    console.log(value);
+  }
+};
+
+const target2 = {};
+Object.defineProperties(target2, Object.getOwnPropertyDescriptors(source));
+Object.getOwnPropertyDescriptor(target2, 'foo')
+// { get: undefined,
+//   set: [Function: set foo],
+//   enumerable: true,
+//   configurable: true }
+
+//Object.getOwnPropertyDescriptors方法的另一个用处，是配合Object.create方法，将对象属性克隆到一个新对象。这属于浅拷贝。
+const clone = Object.create(Object.getPrototypeOf(obj),
+Object.getOwnPropertyDescriptors(obj));
+
+const ab = Object.create(Object.prototype) //使用指定的原型对象及其属性去创建一个新的对象
+console.log(ab)
+
+//__proto__调用的是Object.prototype.__proto__，
+Object.setPrototypeOf(object, prototype)//（写操作）、设置一个对象的prototype对象，返回参数对象本身
+Object.getPrototypeOf(object)//（读操作）、
+Object.create()//（生成操作）代替。
+
+//关键字super，指向当前对象的原型对象。 只有简写的方法识别
+const obj = {
+  foo: 'world',
+  find() {
+    return super.foo;
+  }
+};
+
+//供for...of循环使用。
+// Object.keys方法，返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键名。
+var obj = { foo: 'bar', baz: 42 };
+Object.keys(obj)
+// ["foo", "baz"]
+//Object.values方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。
+const obj = { foo: 'bar', baz: 42 };
+Object.values(obj)
+// ["bar", 42]
+//Object.entries方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值对数组。
+const obj = { foo: 'bar', baz: 42 };
+Object.entries(obj)
+// [ ["foo", "bar"], ["baz", 42] ]
+
+//Object.entries方法的另一个用处是，将对象转为真正的Map结构。
+
+const obj = { foo: 'bar', baz: 42 };
+const map = new Map(Object.entries(obj));
+map // Map { foo: "bar", baz: 42 }
+
+//对象的扩展运算符（...）用于取出参数对象的所有可遍历属性，拷贝到当前对象之中
+let z = { a: 3, b: 4 };
+let n = { ...z };
+n // { a: 3, b: 4 }
+
+//完整的拷贝一个对象 包括原型
+
+const clone1 = {
+  __proto__:Object.getPrototypeOf(obj),
+  ...obj
+}
+
+const clone2 = Object.assign(
+  Object.create(Object.getPrototypeOf(obj)),
+  obj
+)
+
+const clone3 = Object.create(
+  Object.getPrototypeOf(obj),
+  Object.getOwnPropertyDescriptors(obj)
+)
+
+//扩展运算符可以用于合并两个对象。 如果用户自定义的属性，放在扩展运算符后面，则扩展运算符内部的同名属性会被覆盖掉
+let ab = { ...a, ...b };
