@@ -46,3 +46,25 @@ function foo(){
 
 
 //闭包就是能够读取其他函数内部变量的函数
+//this 实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。
+
+//bind(..) 会返回一个硬编码的新函数，不会立即调用
+
+function bind(fn,obj){
+  return function(){
+    fn.call(obj,arguments)
+  }
+}
+  
+// 判断this 现在我们可以根据优先级来判断函数在某个调用位置应用的是哪条规则。可以按照下面的
+// 顺序来进行判断:
+// 1. 函数是否在new中调用(new绑定)?如果是的话this绑定的是新创建的对象。
+//      var bar = new foo()
+// 2. 函数是否通过call、apply(显式绑定)或者硬绑定调用?如果是的话，this绑定的是 指定的对象。
+//      var bar = foo.call(obj2)
+// 3. 函数是否在某个上下文对象中调用(隐式绑定)?如果是的话，this 绑定的是那个上 下文对象。
+//      var bar = obj1.foo()
+// 4. 如果都不是的话，使用默认绑定。如果在严格模式下，就绑定到undefined，否则绑定到 全局对象。
+//      var bar = foo()
+// 如果你把 null 或者 undefined 作为 this 的绑定对象传入 call、apply 或者 bind，这些值
+// 在调用时会被忽略，实际应用的是默认绑定规则:
