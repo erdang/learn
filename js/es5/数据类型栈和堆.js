@@ -1,4 +1,3 @@
-import { StringDecoder } from "string_decoder";
 
 数据类型
 基本类型：Number String Boolean null undefined symbol 
@@ -71,3 +70,7 @@ var o = {
 
   var og = {} && 5
   console.log(og)
+
+  确定一个值是哪种基本类型可以使用 typeof 操作符，而确定一个值是哪种引用类型可以使用 instanceof 操作符
+  person instanceof Object  判断是什么类型的引用类型
+  colors instanceof Array
