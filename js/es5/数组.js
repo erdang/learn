@@ -37,3 +37,32 @@ some(function(item, index, array){})  只有有一项符合函数 返回true
 filter(function(item, index, array){}) 过滤符合函数条件
 map(function(item, index, array){})    为数组每一项遍历
 foreach(function(item, index, array){}) 没有返回值 
+
+
+Date对象
+var now = new Date() 没有参数 获取的是当前的时间
+获取特定时间 传入毫秒数
+获取毫秒数  传入时间 new Date("January 12,2006 22:19:35"); 
+
+var time = Date().now()  调用这个方法时的日期和时间的毫秒数
+var time = +Date().now() 使用+操作符把 Data 对象转换成字符串，也可以达到同样的目的 在不支持的浏览器中
+
+function showTime(){
+	var newDate = new Date(2014,3,17);
+	var nowDate = new Date();
+	
+	var time = newDate - nowDate;
+	var d = Math.floor(time/86400000);
+	
+	time %= 86400000;
+	var h = Math.floor(time/3600000);
+	time %= 3600000;
+	var m = Math.floor(time/60000);
+	time %= 60000;
+	var s = Math.floor(time/1000);
+
+	oSpan.innerHTML = "距离国庆节还有："+d+"天"+h+"时"+m+"分"+s+"秒";
+
+
+
+}
