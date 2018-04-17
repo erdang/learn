@@ -66,3 +66,30 @@ function showTime(){
 
 
 }
+
+
+
+函数 arguments 对象属性callee 指向拥有这个 arguments 对象的函数 函数自身
+function factorial(num){
+  if (num <=1) {
+      return 1;
+  } else {
+      return num * arguments.callee(num-1)
+} }
+函数对象的属性:caller 这个属性中保存着调用当前函数的函数的引用， 如果是在全局作用域中调用当前函数，它的值为 null
+
+
+包装对象 每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象，从而让我们 能够调用一些方法来操作这些数据 然后立即销毁
+3种特殊的引用类型  String Boolean Number
+
+(1) 创建 String 类型的一个实例;
+(2) 在实例上调用指定的方法;
+(3) 销毁这个实例。
+可以将以上三个步骤想象成是执行了下列 ECMAScript 代码。
+var s1 = new String("some text");
+var s2 = s1.substring(2);
+s1 = null;
+
+字符串
+字符方法
+charAt() charCodeAt()
