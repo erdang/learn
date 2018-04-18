@@ -37,6 +37,34 @@ some(function(item, index, array){})  只有有一项符合函数 返回true
 filter(function(item, index, array){}) 过滤符合函数条件
 map(function(item, index, array){})    为数组每一项遍历
 foreach(function(item, index, array){}) 没有返回值 
+join() 拼接成字符串把数组中的每一个值以连接符作为连接点连接成一个字符串。
+
+	参数 ： 一个  指定一个连接符。
+	
+	1，如果不指定连接符，默认以逗号作为连接符。
+	
+	2，连接符也会被连接到字符串中。
+
+数组去重
+
+for(var i=0;i<arr.length;i++){
+	for(var j=i+1;j<arr.length;j++){
+		if(arr[j]==arr[i]){
+			arr.splice(j,1)
+			j--;
+		}
+	}
+}
+var arr1=[];
+var json={}
+
+for(var i=0;i<arr.length;i++){
+	if(!json[arr[i]]){
+		arr1.push(arr[i])
+		json[arr[i]]=1
+	}
+}
+
 
 
 Date对象
@@ -92,4 +120,53 @@ s1 = null;
 
 字符串
 字符方法
-charAt() charCodeAt()
+charAt()  返回指定位置字符
+charCodeAt() 返回指定位置字符编码
+字符串方法
+concat()，用于将一或多个字符串拼接起来，  返回拼接得到的新字符串
+var stringValue = "hello ";
+var result = stringValue.concat("world", "!");
+
+截取字符串
+slice() 两个参数  开始位置 结束位置 返回新的字符串 结束位置不包括结束位置字符
+substr()  两个参数  开始位置  返回的字符个数
+substring() 两个参数  开始位置 结束位置 返回新的字符串 结束位置不包括结束位置字符
+
+查找字符串
+indexOf()和 lastIndexOf()
+从 一个字符串中搜索给定的子字符串，然后返子字符串的位置(如果没有找到该子字符串，则返回-1) 这两个方法都可以接收可选的第二个参数，表示从字符串中的哪个位置开始搜索
+
+toLowerCase()、toUpperCase()和 
+toLocaleLowerCase()、 toLocaleUpperCase() 根据时区
+大小写
+
+匹配
+match()方法只接受一个参数，要么是一 个正则表达式，要么是一个 RegExp 对象  返回新的数组
+search()这个方法的唯一参数与 match()方法的参数相同  返回返回字符串中第一个匹配项的索引 如果没 有找到匹配项，则返回-1
+replace() 第 一个参数可以是一个 RegExp 对象或者一个字符串 第二个参 数可以是一个字符串或者一个函数
+split()这个方法可以基于指定的分隔符将一个字符串分割成 多个子字符串，并将结果放在一个数组中
+localeCompare()，这个方法比较两个字符串
+如果字符串在字母表中应该排在字符串参数之前，则返回一个负数(大多数情况下是-1，具体 的值要视实现而定);
+如果字符串等于字符串参数，则返回 0;
+如果字符串在字母表中应该排在字符串参数之后，则返回一个正数(大多数情况下是 1，具体的
+
+
+	encodeURI() 主要用于整个 URI 不会对本身属于 URI 的特殊字符进行编码，例如冒号、正斜杠、 问号和井字号 只有空格被替换成了 %20
+	encodeURIComponent() 主要用于对 URI 中的某一段 会对它发现的任何非标准字符进行编码 对应的编码替换所有非字母数字字符
+	decodeURI()和 decodeURIComponent()
+	eval()中创建的任何变量或函数都不会被提升，因为在解析代码的时候，它们被包含在一个字 符串中;它们只在 eval()执行的时候创建
+
+	var values = [2,5,4,2]
+	var max = Math.max.apply(Math, values);
+
+	Math.ceil()执行向上舍入，即它总是将数值向上舍入为最接近的整数;
+	Math.floor()执行向下舍入，即它总是将数值向下舍入为最接近的整数;
+	Math.round()执行标准舍入，即它总是将数值四舍五入为最接近的整数(这也是我们在数学课
+	 上学到的舍入规则)。 
+取一组随机的数字
+
+x ~ y  	 : Math.round(Math.random()*(y-x) + x)
+
+0 ~ x    : Math.round(Math.random()*x)
+
+1 ~ x		 : Math.ceil(Math.random()*x)
