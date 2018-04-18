@@ -1,4 +1,4 @@
-import { prototype } from "module";
+
 
 数据属性 和访问器属性
 
@@ -44,3 +44,18 @@ fn.call(obj)
 Person.prototype.isPrototypeOf(person1) 对象之间是否存在原型的关系
 Object.getPrototypeOf(person1)返回的对象实际就是这个对象的原型
 使用 delete 操作符则可以完全删 除实例属性，从而让我们能够重新访问原型中的属性
+hasOwnProperty : 看是不是对象自身下面的属性
+arr.hasOwnProperty('num2') 
+constructor : 查看对象的构造函数
+instanceof : 对象与构造函数在原型链上是否有关系
+Object.prototype.toString.call(arr) == '[object Array]' 
+in 操作符只要通过对象能够访问到属性就返回 true，hasOwnProperty()只在属性存在于 实例中时才返回 true，因此只要 in 操作符返回 true 而 hasOwnProperty()返回 false，就可以确 定属性是原型中的属性
+
+function Person(){
+}
+Person.prototype = {
+  constructor : Person,
+  name : "Nicholas", 
+  job: "Software Engineer"
+}
+constructor 属性不再指向 Person 了 而是Object     但是这种方法constructor 属性会导致它的[[Enumerable]]特性被设置为 true
