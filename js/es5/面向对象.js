@@ -130,18 +130,19 @@ yetAnotherPerson.friends.push("Barbie");
 
 自定义事件
 
-function bindEvent(obj,events,fn){
+function bindEvent(obj, events, fn) {
   obj.listeners = obj.listeners || {};
   obj.listeners[events] = obj.listeners[events] || [];
   obj.listeners[events].push(fn);
-  if(obj.addEventlister){
-    obj.addEventlister(events,fn,false)
-  }else{
-    obj.attachEvent('on'+events,fn);
+  if (obj.addEventlister) {
+    obj.addEventlister(events, fn, false)
+  } else {
+    obj.attachEvent('on' + events, fn);
   }
 }
-function fireEvent(obj,events){
-  for(var i=0;i<obj.listeners[events].length;i++){
+
+function fireEvent(obj, events) {
+  for (var i = 0; i < obj.listeners[events].length; i++) {
     obj.listeners[events][i]()
   }
 
