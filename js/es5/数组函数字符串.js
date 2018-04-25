@@ -171,3 +171,18 @@ x ~ y  	 : Math.round(Math.random()*(y-x) + x)
 
 1 ~ x		 : Math.ceil(Math.random()*x)
 
+   function getRandom(){
+       var arr=[];
+       var json=[];
+
+       while(arr.length<100){
+           var iNum=Math.round(Math.random()*1000);
+
+           if(!json[iNum]){
+               json[iNum]=1;
+               arr.push(iNum);
+           }
+
+			 }
+			 return arr
+   }
