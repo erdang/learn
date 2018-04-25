@@ -170,3 +170,4 @@ x ~ y  	 : Math.round(Math.random()*(y-x) + x)
 0 ~ x    : Math.round(Math.random()*x)
 
 1 ~ x		 : Math.ceil(Math.random()*x)
+
