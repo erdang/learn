@@ -167,3 +167,66 @@ if (document.compatMode == "CSS1Compat"){
 
 元素添加非标准的属性，但要添加前缀 data-
 可以通过元素的 dataset 属性来访问自定义属性的值div.dataset.appId
+
+获取class
+
+function getByClass(obj,sClass){
+  var aElments = (obj||document).body.getElementsByTagName('*')
+  var arr=[];
+  for(var i=0;i<aElments.length;i++){
+    var aIe = aElments[i].className.split(' ');
+    for(var j=0;j<aIe.length;i++){
+      if(aIe[j] == sClass){
+        arr.push(aIe[j]);
+        return
+      }
+    }
+  }
+  return arr;
+
+}
+
+function addClass(obj,sClass){
+  if(!obj.className){
+    obj.className = sClass;
+  }
+  var aclass = obj.className.split(' ');
+  for(var i=0;i<aclass.length;i++){
+    if(aclass[i] == sClass){
+      return
+    }
+  }
+  obj.className += ' '+sClass;
+}
+
+function removeClass(obj,sClass){
+  if(!obj.className)return;
+  var aIe = obj.className.split(' ');
+  for(var i=0;i<aIe.legth;i++){
+    if(aIe[i] == sClass){
+      aIe[i].splice(i,1);
+      obj.className = aIe[i].join(' ');
+      return;
+    }
+  }
+}
+
+
+function getStyle(obj,attr){
+	
+	if(obj.currentStyle){
+		return obj.currentStyle[attr]; 
+	}
+		
+	return getComputedStyle(obj)[attr];		
+	
+}
+1，只能获取非复合样式。
+
+2，获取到的是计算后的样式。
+
+3，所要获取的样式必须是手动设置过样式的，不能是浏览器默认的样式。
+
+
+要强制浏览器以某种模式渲染页面，可以使用 HTTP 头部信息 X-UA-Compatible，或通过等价的 <meta>标签来设置:
+<meta http-equiv="X-UA-Compatible" content="IE=IEVersion">
