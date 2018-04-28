@@ -23,7 +23,7 @@ console.log(arr2)
 arr=arr.concat()
 没有参数 复制当前数组返回当前数组副本
 有参数 添加当前数组并返回
-sclie(start,end) 开始结束位置 返回一个新数组 start可以省略
+slice(start,end) 开始结束位置 返回一个新数组 start可以省略
 splice() 返回数组 包含被删除的项
 删除  2个参数  起始位置  删除几个
 添加  3个参数  起始位置  删除0个  添加的值
