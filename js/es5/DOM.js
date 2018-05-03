@@ -230,3 +230,6 @@ function getStyle(obj,attr){
 
 要强制浏览器以某种模式渲染页面，可以使用 HTTP 头部信息 X-UA-Compatible，或通过等价的 <meta>标签来设置:
 <meta http-equiv="X-UA-Compatible" content="IE=IEVersion">
+
+
+getBoundingClientRect()方法。这个方法返回会一个矩形对象，包含 4 个属性:left、top、right 和 bottom

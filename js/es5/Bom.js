@@ -6,12 +6,12 @@ BOM ： 浏览器对象模型  broswer object model
 var iWidth = document.documentElement.clientWidth || document.body.clientWidth
 var iHeight = document.documentElement.clientHeight || document.body.clientHeight
 
-被滚动条滚动到浏览器边缘里面的页面高度。
+被滚动条滚动到浏览器边缘里面的页面高度。 
 
 var scrolltop = document.body.scrollTop || document.documentElement.scrollTop;
 var scrollleft = document.body.scrollLeft || document.documentElement.scrollLeft;
 
-内容高度
+内容高度 在没有滚动条的情况下，元素内容的总高度
 var iWidth = document.documentElement.scrollWidth || document.body.scrollWidth
 var iHeight = document.documentElement.scrollHeight || document.body.scrollHeight
 
