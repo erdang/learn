@@ -1,9 +1,9 @@
 BOM ： 浏览器对象模型  broswer object model
 
 
-可视区大小： 浏览器中可以看到网页内容部分的大小。
+可视区大小： 浏览器中可以看到网页内容部分的大小。 混杂模式ie 是body
 
-var iWidth = document.documentElement.clientWidth || document.body.clientWidth
+var iWidth = document.documentElement.clientWidth || document.body.clientWidth 
 var iHeight = document.documentElement.clientHeight || document.body.clientHeight
 
 被滚动条滚动到浏览器边缘里面的页面高度。 

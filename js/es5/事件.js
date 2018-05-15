@@ -2,7 +2,7 @@
 
 所有现代浏览器都支持事件冒泡
 
-DOM2.0 模型将事件处理流程分为三个阶段，即事件捕获阶段、事件处理阶段、事件冒泡阶段
+DOM2.0 模型将事件处理流程分为三个阶段，即事件捕获阶段、事件处理阶段（冒泡阶段的一部分）、事件冒泡阶段
 
 事件捕获：当用户触发点击事件后，顶层对象document 就会发出一个事件流，从最外层的DOM节点向目标元素节点传递，最终到达目标元素。
 
@@ -59,3 +59,21 @@ function removeBind(obj,evName,fn){
     obj['on'+evName] = null
   }
 }
+
+dom 事件对象
+event
+target 事件目标
+event.preventDefault() 取消默认行为
+event.stopPropagation() 同时取消 事件捕获和冒泡
+
+ie 事件对象
+window.event
+srcElement 事件目标
+window.event.cancelBubble = true 取消冒泡  ie只支持冒泡
+window.event.returnValue = false; 取消默认行为
+
+
+return false 需要取消默认行为和冒泡的同时
+•event.preventDefault();
+•event.stopPropagation();
+•停止回调函数执行并立即返回。
