@@ -87,6 +87,26 @@ DOMContentLoaded load之前触发 dom树形成
 
 鼠标滚轮事件
 
+ie/chorme  onmousewheel
+event.wheelDelta
+  上:120
+  下:-120
+
+  ff DOMMouseScroll  addEventListener
+  event.detail
+  上:-3
+  下:3
+  var iBtn = true;
+  if (ev.wheelDelta) {
+    iBtn = ev.wheelDelta > 0 ? true : false;
+  } else {
+    iBtn = ev.detail < 0 ? true : false;
+  }
+
+
+
+
+
 事件委托
 oUl.onclick = function(ev){
   　　　　var ev = ev || window.event;
