@@ -26,4 +26,4 @@ Augular
 
 脏检查 
 
-简单来说就是给每个需要绑定的元素加个watcher，缓存下oldValue，然后定时遍历所有的watcher，比较newValue和oldValue，如果变化了做更新操作。
+简单来说就是给每个需要绑定的元素加个watcher，缓存下oldValue，然后定时（定时不准确 确切的说是指定事件触发后，才进入$digest cycle：）遍历所有的watcher，比较newValue和oldValue，如果变化了做更新操作。
