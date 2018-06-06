@@ -221,6 +221,8 @@ function getStyle(obj,attr){
 	return getComputedStyle(obj)[attr];		
 	
 }
+currentStyle ie
+getComputedStyle()首先是有两个参数，元素和伪类。第二个参数不是必须的，当不查询伪类元素的时候可以忽略或者传入 null
 1，只能获取非复合样式。
 
 2，获取到的是计算后的样式。

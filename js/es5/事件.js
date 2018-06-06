@@ -31,6 +31,7 @@ var handler = function(){
 btn.addEventListener("click", handler, false);
 //取消 这种才有效  匿名函数取消无效
 btn.removeEventListener("click", handler, false); //有效!
+btn.removeEventListener("click", function(){}, false); //无效!匿名函数取消无效
 
 IE事件处理程序
 attachEvent()和 detachEvent()
