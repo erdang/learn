@@ -55,3 +55,4 @@ function css(obj, attr) {
 		return getComputedStyle(obj, false)[attr];
 	}
 }
+时间版
