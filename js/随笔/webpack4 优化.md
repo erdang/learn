@@ -6,7 +6,7 @@ Webpack4 那点儿东西 基于webpack4总结了一些webpack的常见配置，�
 
 即把基础模块的代码打包进入动态链接库里，比如常用的react，vue等，当需要导入的模块在动态连接库里的时候，模块不能再次被打包，而是去动态连接库里获取
 
-### 1.创建一个webpack.dll.config.js文件打包常用类库到dll中
+  ### 1.创建一个webpack.dll.config.js文件打包常用类库到dll中
 
     module.exports = {
       entry: {
