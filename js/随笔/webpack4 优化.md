@@ -25,3 +25,16 @@ Webpack4 那点儿东西 基于webpack4总结了一些webpack的常见配置，�
       ]
     }
     webpack --config webpack.dll.config.js --mode production
+
+
+  ### 2.在住配置文件 webpack.config.js中加入以下代码
+
+    plugins: [
+      new webpack.DllReferencePlugin({
+            manifest: require(path.join(__dirname, 'dist', 'vue.manifest.json')),
+        })
+    ]
+    webpack --config webpack.config.js --mode development
+
+  
+  这样会从dll中获取vue，而且不用再次打包vue了。
