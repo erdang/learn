@@ -116,3 +116,66 @@ Webpack4 那点儿东西 基于webpack4总结了一些webpack的常见配置，�
 
 这个变化还是很大的，之前的webpack版本用的都是commonchunkplugin，但是webpack4开始使用
 [common-chunk-and-vendor-chunk](https://github.com/webpack/webpack/tree/master/examples/common-chunk-and-vendor-chunk)
+配置如下:
+
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            chunks: "initial",
+            minChunks: 2,
+            maxInitialRequests: 5, // The default limit is too small to showcase the effect
+            minSize: 0 // This is example is too small to create commons chunks
+          },
+          vendor: {
+            test: /node_modules/,
+            chunks: "initial",
+            name: "vendor",
+            priority: 10,
+            enforce: true
+          }
+        }
+      }
+    }
+
+## Scope Hoisting
+
+作用域提升，这是在webpack3中所提出来的。它会使代码体积更小，因为函数申明语句会产生大量代码.
+
+    const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
+      plugins: [
+      // 开启 Scope Hoisting
+      new ModuleConcatenationPlugin(),
+    ],
+
+## CDN
+
+对于静态资源的处理，放入CDN是一个很好的选择，webpack中配置CDN的方式如下:
+
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name]_[hash:8].js',
+      publicPath: 'http://static.xxxx.com/'
+    },
+
+## 多进程之HappyPack
+
+HappyPack就能让Webpack把任务分解给多个子进程去并发的执行，子进程处理完后再把结果发送给主进程，其中子进程的个数为cpu的个数减去1,需要在loader处修改如下
+
+    use: 'happypack/loader?id=babel',
+
+并且在plugin中添加以下代码:
+
+    new HappyPack({
+      id: 'babel',
+      //如何处理.js文件，和rules里的配置相同
+      loaders: [{
+          loader: 'babel-loader',
+          query: {
+              presets: [
+                  "env", "stage-0"
+              ]
+          }
+      }]
+    }),
+
