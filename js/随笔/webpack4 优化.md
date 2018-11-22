@@ -115,4 +115,4 @@ Webpack4 那点儿东西 基于webpack4总结了一些webpack的常见配置，�
 ## 提取公共代码
 
 这个变化还是很大的，之前的webpack版本用的都是commonchunkplugin，但是webpack4开始使用
-\[common-chunk-and-vendor-chunk](https://github.com/webpack/webpack/tree/master/examples/common-chunk-and-vendor-chunk)
+[common-chunk-and-vendor-chunk](https://github.com/webpack/webpack/tree/master/examples/common-chunk-and-vendor-chunk)
