@@ -189,11 +189,11 @@ webpack4 的新增 optimization,可以方便的分离代码，而且 hash 的稳
 单独打包业务代码、第三方类库、runtime
 
 		optimization: {
-        splitChunks: {      // 打包 node_modules里的代码
-            chunks: 'all'
-        },
-        runtimeChunk: true,  // 打包 runtime 代码
-    }
+			splitChunks: {      // 打包 node_modules里的代码
+					chunks: 'all'
+			},
+			runtimeChunk: true,  // 打包 runtime 代码
+		}
 
 单独打包 css 代码
 
@@ -205,3 +205,16 @@ webpack4 推荐 mini-css-extract-plugin  contenthash
 	* [chunkhash] ： chunk 有变动，chunkhash 变化
 	* [contenthash] ： 目前文档没有明确定义和说明，但是和文件内容的变化相关
 
+在分离 js 和 css 时，都用设置 contenthash
+
+		output: {
+			path: path.resolve(__dirname, '../dist'),
+			filename: 'static/js/[name].[contenthash:8].js',
+			publicPath: '/'
+		},
+
+		new MiniCssExtractPlugin({
+      filename: 'static/css/[name].[contenthash:8].css'
+    }),
+
+				配置js的文件名时，之前webpack3都是用chunkhash也没问题，但是实践后发现webpack4中用chunkhash，会导致，修改css时引发js的chunkhash变化，从而缓存失效。
