@@ -199,6 +199,8 @@ webpack4 的新增 optimization,可以方便的分离代码，而且 hash 的稳
 
 webpack4 推荐 mini-css-extract-plugin  contenthash
 
+> 注意: 之前的 extract-text-webpack-plugin 需要 beta 版本才支持，而且 contenthash 无法使用。
+
 分配不同的 hash
 
 	* [hash] ： 整个项目有变动时，hash 变化。
