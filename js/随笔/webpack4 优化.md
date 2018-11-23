@@ -207,11 +207,11 @@ webpack4 推荐 mini-css-extract-plugin  contenthash
 
 在分离 js 和 css 时，都用设置 contenthash
 
-output: {
-path: path.resolve(__dirname, '../dist'),
-filename: 'static/js/[name].[contenthash:8].js',
-publicPath: '/'
-},
+	output: {
+		path: path.resolve(__dirname, '../dist'),
+		filename: 'static/js/[name].[contenthash:8].js',
+		publicPath: '/'
+	},
 
 		new MiniCssExtractPlugin({
 			filename: 'static/css/[name].[contenthash:8].css'
