@@ -214,7 +214,7 @@ webpack4 推荐 mini-css-extract-plugin  contenthash
 		},
 
 		new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash:8].css'
-    }),
+			filename: 'static/css/[name].[contenthash:8].css'
+		}),
 
-				配置js的文件名时，之前webpack3都是用chunkhash也没问题，但是实践后发现webpack4中用chunkhash，会导致，修改css时引发js的chunkhash变化，从而缓存失效。
+		配置js的文件名时，之前webpack3都是用chunkhash也没问题，但是实践后发现webpack4中用chunkhash，会导致，修改css时引发js的chunkhash变化，从而缓存失效。
