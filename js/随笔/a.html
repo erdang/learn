@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>酷小漫</title>
+    <link rel="stylesheet" href="http://x66461.xingtoon.com/themes/library/mui/css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="http://x66461.xingtoon.com/themes/wechat/test-theme/default-skin/src/css/default.css?20181224" />
+    <link rel="stylesheet" type="text/css" href="http://x66461.xingtoon.com/themes/wechat/test-theme/default-skin/src/css/bookshelf.css?20181224" />
+    <link rel="stylesheet" type="text/css" href="http://x66461.xingtoon.com/themes/wechat/test-theme/default-skin/src/css/common.css?20181224" />
+    <link rel="stylesheet" type="text/css" href="http://x66461.xingtoon.com/themes/wechat/test-theme/default-skin/src/css/sign.css?20181224" />
+                                            
+                <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/mui/js/mui.js"></script>
+    <script type="text/javascript" src="http://x66461.xingtoon.com/themes/wechat/default-theme/default-skin/src/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/mui/js/mui.lazyload.js"></script>
+    <script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/mui/js/mui.lazyload.img.js"></script>
+    <script type="text/javascript" src="http://x66461.xingtoon.com/themes/wechat/default-theme/default-skin/src/js/jquery.bigautocomplete.js"></script>
+    <script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/mui/js/mui.zoom.js"></script>
+    
+    
+<script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/html2canvas/html2canvas.js"></script>
+<script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/html2canvas/canvas2image.js"></script>
+<script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/html2canvas/base64.js"></script>
+<script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/qrcode/utf.js"></script>
+<script type="text/javascript" src="http://x66461.xingtoon.com/themes/library/qrcode/jquery.qrcode.js"></script>
+<style>
+    body{
+        background-color: #ea6e68;
+    }
+    .y-invitation-new-img img{
+        width: 100%;
+    }
+</style>
+
+
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script>
+        var title = "你的好友邀请你";
+        var desc = '一起看超刺激漫画，并向你扔来一个大红包';
+        var link = 'http://x66461.xingtoon.com/?tuid=14388849';
+        var imgUrl = 'http://img.fox800.xyz/themes/wechat/yellow-theme/default-skin/src/img/shareImg.jpg';
+
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: "wx94edf6f0bdcff2be", // 必填，公众号的唯一标识
+            timestamp: 1550627179, // 必填，生成签名的时间戳
+        nonceStr: "Wm3WZYTPz0wzccnWxtamp", // 必填，生成签名的随机串
+            signature: "a55f343e2aa8b5355fefcba0579e031a5a73405e",// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+        wx.ready(function(){
+            wx.onMenuShareTimeline({
+                title: title, // 分享标题
+                desc: desc,
+                link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+                    $.post("/task/shareCallback", {url : window.location.href} ,function (res) {
+                        if (window.location.href.indexOf('task')) {
+                            //window.location.reload();
+                        }
+                    });
+                }
+            }),
+                wx.onMenuShareAppMessage({
+                    title: title, // 分享标题
+                    desc: desc,
+                    link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: imgUrl, // 分享图标
+                    success: function () {
+                        $.post("/task/shareCallback", {url : window.location.href} ,function (res) {
+                            if (window.location.href.indexOf('task')) {
+                                //window.location.reload();
+                            }
+                        });
+                    }
+                })
+        });
+    </script>
+    </head>
+<body>
+
+
+
+<div class="y-invitation">
+    <div class="y-invitation-top">
+        <img src="http://img.fox800.xyz/themes/wechat/yellow-theme/default-skin/src/img/y-task-bg1.png">
+    </div>
+    <div class="y-invitation-main">
+        <img id="y-invitation-bg" src="http://img.fox800.xyz/themes/wechat/yellow-theme/default-skin/src/img/y-task-bg2.png">
+        <div id="y-invitation-bg2"></div>
+    </div>
+    <div class="y-invitation-bottom">
+        <ul>
+            <li>
+                <p>· 成功邀请 ·</p>
+                <p><span>0</span>人</p>
+            </li>
+            <li>
+                <p>· 获得金币 ·</p>
+                <p><span>0</span></p>
+            </li>
+            <li>
+                <p>· 赠送金币 ·</p>
+                <p><span>0</span></p>
+            </li>
+        </ul>
+    </div>
+    <div class="y-invitation-new-img">
+
+    </div>
+    <div class="y-invitation-new-box">
+
+    </div>
+    <div class="y-tuhao-go-back2"><a href="javascript:history.back(-1)"><i></i></a></div>
+</div>
+<script>
+    var y = 0,
+        setLeft = 0,
+        setTop = 0;
+    if ( window.screen.width > 330){
+        y = 131;
+        setLeft = 310;
+        setTop = 310;
+    } else {
+        y = 111;
+        setLeft = 265;
+        setTop = 265;
+    }
+    $(document).ready(function () {
+        $("#y-invitation-bg2").qrcode({
+            render: "canvas",
+            text: "http://x66461.xingtoon.com/?tuid=14388849",
+            width: y,
+            height: y,
+            background: "#ffffff",
+            foreground: "#000000",
+        });
+
+        setTimeout(function(){
+        $(".y-invitation-main").width($(".y-invitation-main").width()*2);
+        $(".y-invitation-main").height($(".y-invitation-main").height()*2);
+        $("#y-invitation-bg2").width($("#y-invitation-bg2").width()*2);
+        $("#y-invitation-bg2").height($("#y-invitation-bg2").height()*2);
+        $("#y-invitation-bg2 canvas").width($("#y-invitation-bg2 canvas").width()*2);
+        var left = $(".y-invitation-main img").offset().left + $(".y-invitation-main img").width();
+        var top = $(".y-invitation-main img").offset().top;
+        $('#y-invitation-bg2').offset({left : left - setLeft,top : top + $(".y-invitation-main img").height() - setTop});
+        window.scrollTo(0,0);
+        html2canvas($(".y-invitation-main"),{ width:$(".y-invitation-main").width() , height:$(".y-invitation-main").height()/2 }).then(function(canvas) {
+          
+          
+            $('.y-invitation-new-img').append(Canvas2Image.convertToImage(canvas, $(".y-invitation-main").width(), $(".y-invitation-main").height()/2));
+         
+            var imgURL = $('.y-invitation-new-img img').attr('src');
+            canvas.style.width = $(".y-invitation-main").width()/2 + "px";
+            canvas.style.height = $(".y-invitation-main").height()/4 + "px";
+            $('.y-invitation-new-box').append(canvas);
+            $(".y-invitation-main").width($(".y-invitation-main").width()/2);
+            $(".y-invitation-main").height($(".y-invitation-main").height()/4);
+            $("#y-invitation-bg2").hide();
+            $(".y-invitation-new-img").hide();
+            $(".y-invitation-new-box").hide();
+            $("#y-invitation-bg").attr('src',imgURL);
+        });
+    },1000);
+    });
+
+    
+
+</script>
+
+<nav class="mui-bar mui-bar-tab nav-footer tophref">
+    <a class="mui-tab-item " href="/index/index" >
+    <span class="footer-nav-icon icon-recommended"></span>
+    <span class="mui-tab-label">推荐</span>
+    </a>
+    <a class="mui-tab-item " href="/category/index">
+        <span class="footer-nav-icon icon-class"></span>
+        <span class="mui-tab-label">找书</span>
+    </a>
+    <a class="mui-tab-item " href="/shelf">
+    <span class="footer-nav-icon icon-bookcase"></span>
+    <span class="mui-tab-label">书架</span>
+    </a>
+    
+    <a class="mui-tab-item " href="/center">
+        <span class="footer-nav-icon icon-mine"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+
+<!--    好友邀请金币弹窗-->
+
+<!--    国庆节充值活动弹窗-->
+
+
+
+<script>
+    mui('.tophref').on('tap','a',function(){document.location.href=this.href;});
+</script>
+<script>
+
+    //    好友邀请弹窗
+    openFriendsGold();
+    function openFriendsGold(){
+        $(".y-friends-gold").addClass("y-friends-active");
+        setTimeout(function(){
+            $(".y-friends-goldbg").addClass("y-friends-active2");
+        },200)
+    }
+    function closeFriendsGold(){
+        $(".y-friends-goldbg").removeClass("y-friends-active2");
+        setTimeout(function(){
+            $(".y-friends-gold").removeClass("y-friends-active");
+        },100)
+    }
+</script>
+<script type="text/javascript" src="http://x66461.xingtoon.com/themes/wechat/default-theme/default-skin/src/js/common.js"></script>
+</body>
+</html>

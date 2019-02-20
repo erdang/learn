@@ -154,3 +154,18 @@ oUl.onclick = function(ev){
       ev.returnValue = false;
     }
   }
+
+
+  mouseover,mouseout是指鼠标指针在穿过/离开被选元素或其子元素时触发。
+
+mouseenter，mouseleave是指鼠标指针在穿过/离开被选元素时触发。
+而hover的效果等同于mouseenter，mouseleave。
+“_”是IE6专有的hack
+
+“+”是IE7的
+* 6 7
+“\9” IE6/IE7/IE8/IE9/IE10都生效
+
+“\0” IE8/IE9/IE10都生效，是IE8/9/10的hack
+
+“\9\0” 只对IE9/IE10生效，是IE9/10的hack
