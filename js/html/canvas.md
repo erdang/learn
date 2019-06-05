@@ -2,4 +2,4 @@
 
   ## 什么是canvas
 
-    `canvas`
+    \`canvas`
