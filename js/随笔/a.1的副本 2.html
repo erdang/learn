@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>更多</title>
+    <link href="http://m49.dmeg88.com/Content/Share/css/mui.css" rel="stylesheet" />
+    <link href="http://m49.dmeg88.com/Content/Share/css/iconfont.css" rel="stylesheet" />
+    <link href="http://m49.dmeg88.com/Content/Share/css/icons-extra.css" rel="stylesheet" />
+    <link href="http://m49.dmeg88.com/Content/wechat/sup_dr_com/css/common.css?v=7" rel="stylesheet" />
+    <script src="http://m49.dmeg88.com/Content/Share/js/jquery-1.9.1.min.js"></script>
+    <script src="http://m49.dmeg88.com/Content/Share/js/mui.min.js"></script>
+    <script src="http://m49.dmeg88.com/Content/Share/js/layer.js"></script>
+    <script src="http://m49.dmeg88.com/Content/Share/js/yunweidu.js"></script>
+    <script src="http://m49.dmeg88.com/Content/wechat/sup_dr_com/js/main.js"></script>
+    <style>
+        .bottom-icon {
+            font-size: 20px;
+            display: block;
+            margin-top: 4px;
+        }
+        .mui-bar-tab .mui-tab-item.mui-active {
+            color: #0faeff;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="mui-content">
+        
+<div class="my-sub-header">
+    <a href="javascript:history.back(-1)" class="iconimg back"></a>
+    <span>更多</span>
+</div>
+<ul class="mui-table-view" id="data-ul">
+    <li class="mui-table-view-cell mui-media waiting">
+        <a href="#">
+            <img class="mui-media-object mui-pull-left" src="http://m49.dmeg88.com/Content/Share/imgs/waiting.jpg" />
+            <div class="mui-media-body">
+                <p class="novel-name">加载中...</p>
+                <p class='mui-ellipsis-2 description'>加载中，请稍后...</p>
+            </div>
+        </a>
+    </li>
+</ul>
+<script>
+    $(function () {
+        $('nav .mui-tab-item:eq(0)').addClass('mui-active');
+        var url = 'http://m49.dmeg88.com/Home/NovelsJson?i=14&sexType=0&typeId=';
+        yunweidu.scroll(url, appendNovelData,1);
+    });
+</script>
+    </div>
+    <nav class="mui-bar mui-bar-tab foot">
+        <a class="mui-tab-item my-tab-item" href="/Home/Index">
+            <span class="home-tab"></span>
+        </a>
+        <a class="mui-tab-item my-tab-item" href="/Home/Bookstore">
+            <span class="fenlei-tab"></span>
+        </a>
+        <a class="mui-tab-item my-tab-item" href="/Home/ReadHistory?type=2">
+            <span class="shujia-tab"></span>
+        </a>
+        <a class="mui-tab-item my-tab-item" href="/Home/Personal">
+            <span class="my-tab"></span>
+        </a>
+    </nav>
+<script>
+    mui.init();
+    mui('body').on('tap', 'a', function() { document.location.href = this.href; });
+</script>
+    <script> var _hmt = _hmt || []; (function() {   var hm = document.createElement("script");   hm.src = "https://hm.baidu.com/hm.js?6420083f17d6c0ba9779619e41223be6";   var s = document.getElementsByTagName("script")[0];    s.parentNode.insertBefore(hm, s); })(); </script>
+</body>
+</html>

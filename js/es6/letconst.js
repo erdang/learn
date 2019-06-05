@@ -2,12 +2,12 @@
 //它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
 
 {
-    let a = 10;
-    var b = 1;
+  let a = 10;
+  var b = 1;
 }
-  
-  console.log(a) // ReferenceError: a is not defined.
-  console.log(b) // 1
+
+console.log(a) // ReferenceError: a is not defined.
+console.log(b) // 1
 
 //不存在变量提升
 
@@ -22,16 +22,16 @@ let bar = 2;
 //暂时性死区
 //在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）
 if (true) {
-    // TDZ开始
-    tmp = 'abc'; // ReferenceError
-    console.log(tmp); // ReferenceError
-  
-    let tmp; // TDZ结束
-    console.log(tmp); // undefined
-  
-    tmp = 123;
-    console.log(tmp); // 123
-  }
+  // TDZ开始
+  tmp = 'abc'; // ReferenceError
+  console.log(tmp); // ReferenceError
+
+  let tmp; // TDZ结束
+  console.log(tmp); // undefined
+
+  tmp = 123;
+  console.log(tmp); // 123
+}
 //“暂时性死区”也意味着typeof不再是一个百分之百安全的操作。
 typeof x; // ReferenceError
 let x;

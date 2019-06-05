@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>首页</title>
+    <link href="http://m49.dmeg88.com/Content/Share/css/mui.css" rel="stylesheet" />
+    <link href="http://m49.dmeg88.com/Content/Share/css/iconfont.css" rel="stylesheet" />
+    <link href="http://m49.dmeg88.com/Content/Share/css/icons-extra.css" rel="stylesheet" />
+    <link href="http://m49.dmeg88.com/Content/wechat/sup_dr_com/css/common.css?v=7" rel="stylesheet" />
+    <script src="http://m49.dmeg88.com/Content/Share/js/jquery-1.9.1.min.js"></script>
+    <script src="http://m49.dmeg88.com/Content/Share/js/mui.min.js"></script>
+    <script src="http://m49.dmeg88.com/Content/Share/js/layer.js"></script>
+    <script src="http://m49.dmeg88.com/Content/Share/js/yunweidu.js"></script>
+    <script src="http://m49.dmeg88.com/Content/wechat/sup_dr_com/js/main.js"></script>
+    <style>
+        .bottom-icon {
+            font-size: 20px;
+            display: block;
+            margin-top: 4px;
+        }
+        .mui-bar-tab .mui-tab-item.mui-active {
+            color: #0faeff;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="mui-content">
+        
+<style>
+    .mui-bar {
+        -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .85);
+        box-shadow: 0 0 0 rgba(0, 0, 0, .85);
+    }
+
+    .iconfont {
+        margin-top: 5px;
+        font-size: 18px;
+        display: block;
+    }
+
+    .mui-slider-indicator {
+        -bottom: 0px;
+        text-align: left;
+        padding-left: 16px;
+    }
+
+        .mui-slider-indicator .mui-indicator {
+            background: #eeeeee;
+            width: 6px;
+            height: 5px;
+            margin: 1px 2px;
+        }
+
+        .mui-slider-indicator .mui-active.mui-indicator {
+            background: #ffffff;
+            width: 14px;
+        }
+
+    .mui-grid-9 .mui-table-view-cell {
+        border: 0;
+    }
+
+    .mui-grid-view.mui-grid-9 {
+        padding: 0;
+    }
+
+    .mui-grid-view.mui-grid-9 .mui-table-view-cell > a:not(.mui-btn) {
+        padding: 0;
+    }
+
+    .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+        height: auto;
+        text-align: left;
+    }
+</style>
+
+    <div class="menu">
+        <a href="/Home/Search" class="iconimg search"></a>
+    </div>
+    <div id="slider" class="mui-slider home-slider">
+        <div class="mui-slider-group mui-slider-loop">
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="/Home/NovelIndex?novelId=164">
+                    <div>
+                        <img class="slider-img" src="http://img.a.0756hhr.com/Upload/Images/SliderImgs/20181120/201811201720387460558.jpg" />
+                    </div>
+                </a>
+            </div>
+                <div class="mui-slider-item">
+                    <a href="/Home/NovelIndex?novelId=164">
+                        <div>
+                            <img class="slider-img" src="http://img.a.0756hhr.com/Upload/Images/SliderImgs/20181120/201811201720387460558.jpg" />
+                        </div>
+                    </a>
+                </div>
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="/Home/NovelIndex?novelId=164">
+                    <div>
+                        <img class="slider-img" src="http://img.a.0756hhr.com/Upload/Images/SliderImgs/20181120/201811201720387460558.jpg" />
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="mui-slider-indicator"><div class="mui-indicator"></div></div>
+    </div>
+<ul class="mui-table-view mui-grid-view mui-grid-9">
+    <li class="mui-table-view-cell mui-media mui-col-xs-3 rank-li">
+        <a href="/Home/RankPage/1">
+            <img style="-webkit-box-shadow: none;" src="http://m49.dmeg88.com/Content/wechat/sup_dr_com/images/woman.png" />
+            <div class="rank-li-title">女生榜</div>
+        </a>
+    </li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-3 rank-li">
+        <a href="/Home/RankPage/2">
+            <img style="-webkit-box-shadow: none;" src="http://m49.dmeg88.com/Content/wechat/sup_dr_com/images/man.png" />
+            <div class="rank-li-title">男生榜</div>
+        </a>
+    </li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-3 rank-li">
+        <a href="/Home/RankPage/3">
+            <img style="-webkit-box-shadow: none;" src="http://m49.dmeg88.com/Content/wechat/sup_dr_com/images/renqi.png" />
+            <div class="rank-li-title">人气榜</div>
+        </a>
+    </li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-3 rank-li">
+        <a href="/Home/RankPage/4">
+            <img style="-webkit-box-shadow: none;" src="http://m49.dmeg88.com/Content/wechat/sup_dr_com/images/new.png" />
+            <div class="rank-li-title">热销榜</div>
+        </a>
+    </li>
+</ul>
+
+
+                    <div class="index-row">
+                        <div class="index-title">
+                            <a class="index-more" href="/Home/Novels?i=14">更多</a>
+                            <span>最新上线</span>
+                        </div>
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=252">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190223/201902230147080621700.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">分裂人格</div>
+                                            <div class="novel-descp">车祸之后，我的女友突然觉醒了新的人格，而这个人格正是潜藏在心底里的欲望...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=251">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902221922162385332.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">再遇前度</div>
+                                            <div class="novel-descp">10年前忘不掉的女友变成了现任上司的妻子；却又在机缘下见面了；而上司对我们的关系很是感兴趣....</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=250">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902222028587030289.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">翰林精神病院</div>
+                                            <div class="novel-descp">当红人气偶像却因患有幻痛症，被迫调养休息。此时变态狂热粉也随之而来，阴谋的陷阱正一步步逼近...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=249">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902222037204180086.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">我的野蛮妹妹</div>
+                                            <div class="novel-descp">我和我妹妹住在一起。不对，是我好兄弟的妹妹，他把她妹妹托付给了我！我不想做家庭主妇，我不付房租，我不做家务！这就是我的意思！</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=248">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190221/201902212222324869663.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">楼上掉下来的妹子</div>
+                                            <div class="novel-descp">一个从天花板上掉下来的妹子，就这么的闯进了我的生活...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=247">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190214/201902142032414129584.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">兄弟的女友</div>
+                                            <div class="novel-descp">死党的女朋友竟然是我当年的暗恋对象？等等，她主动冲我脱衣服干什么？</div>
+                                        </div>
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                    <div class="index-row">
+                        <div class="index-title">
+                            <a class="index-more" href="/Home/Novels?i=15">更多</a>
+                            <span>连载更新</span>
+                        </div>
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=78">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190221/201902212130278848005.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">临界暧昧</div>
+                                            <div class="novel-descp">年轻的小妈时不时的挑逗，让我难以招架，出去还经常被误以为......</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=10">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20180823/201808232308386856991.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">窥视者第二季</div>
+                                            <div class="novel-descp">不管是在通勤的路上還是家裡，總有個視線不停遊走在我身上...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=103">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190221/201902212154206204465.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">上门女婿</div>
+                                            <div class="novel-descp">由于小我14岁的女友猝不及防的怀孕后，我成了她们家的上门女婿，和丈母娘三个人一起生活。出乎意料是丈母娘居然是我曾经的初恋...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=13">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902222057475483921.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">本能觉醒</div>
+                                            <div class="novel-descp">“无能”的男主角偶然间得到山精赐予的纯阳能量，觉醒了身体的本能，让他在这个美女如云的都市里走向了巅峰...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=100">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902222049272374977.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">丧尸太平楼</div>
+                                            <div class="novel-descp">突如其来的丧尸危机，包围了韩国某公寓的居民，为了得到物资和排解寂寞，男男女女们展示了人性的丑恶。自此之后，公寓开始不分昼夜地传出异样的声音…</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=105">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190221/201902212200147819160.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">户外女主播</div>
+                                            <div class="novel-descp">那个网络上非常火爆的口女主播，竟然就住在我楼上?!</div>
+                                        </div>
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+            <div class="index-row">
+                <div class="index-title">
+                    <a class="index-more" href="/Home/Novels?i=16">更多</a>
+                    <span>人气最高</span>
+                </div>
+                <ul class="mui-table-view mui-grid-view mui-grid-9">
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 cell-padding">
+                            <a href="/Home/NovelIndex?NovelId=151">
+                                <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/h_novel_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelHCovers/20181220/201812202000414609843.jpg" />
+                                <div class="mui-media-body">
+                                    <div class="novel-title">明云少年</div>
+                                    <div class="novel-descp">抚养了数十年的亲侄儿，突然间没有了血缘关系，这段复杂的感情又将何去何从？</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 cell-padding">
+                            <a href="/Home/NovelIndex?NovelId=81">
+                                <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/h_novel_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelHCovers/20180828/201808281032145682412.jpg" />
+                                <div class="mui-media-body">
+                                    <div class="novel-title">香艳小店</div>
+                                    <div class="novel-descp">这家店里，有好多漂亮的小姐姐，她们将带你进入美妙的世界...</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 cell-padding">
+                            <a href="/Home/NovelIndex?NovelId=156">
+                                <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/h_novel_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelHCovers/20181222/201812220051439368727.jpg" />
+                                <div class="mui-media-body">
+                                    <div class="novel-title">干柴与烈火</div>
+                                    <div class="novel-descp">她瞒着丈夫 ，与陌生的男人们交往，只因为不能满足于同一个男人...</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 cell-padding">
+                            <a href="/Home/NovelIndex?NovelId=2">
+                                <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/h_novel_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelHCovers/20180823/201808232054292570823.jpg" />
+                                <div class="mui-media-body">
+                                    <div class="novel-title">触感能力者</div>
+                                    <div class="novel-descp">平常不受欢迎的家伙因为一场事故，拥有了一种“让人愉悦的特殊能力”，从此人生发生翻天覆地的改变！</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 cell-padding">
+                            <a href="/Home/NovelIndex?NovelId=57">
+                                <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/h_novel_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelHCovers/20180823/201808231626329645051.jpg" />
+                                <div class="mui-media-body">
+                                    <div class="novel-title">双面保姆</div>
+                                    <div class="novel-descp">富二代高动水的家庭来了一位保姆和她的女儿，在一次无意中，高动水发现自己的父亲竟然与保姆有染，于是拍下视频后，发生了一系列的故事......</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 cell-padding">
+                            <a href="/Home/NovelIndex?NovelId=232">
+                                <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/h_novel_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelHCovers/20190122/201901221553440720823.jpg" />
+                                <div class="mui-media-body">
+                                    <div class="novel-title">OK跑腿奇遇记</div>
+                                    <div class="novel-descp">只要你点我，1分钟到你身边，我就能帮你做任何事...</div>
+                                </div>
+                            </a>
+                        </li>
+                </ul>
+            </div>
+                    <div class="index-row">
+                        <div class="index-title">
+                            <a class="index-more" href="/Home/Novels?i=18">更多</a>
+                            <span>小编推荐</span>
+                        </div>
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=11">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20180823/201808232309357304614.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">窥视者第一季</div>
+                                            <div class="novel-descp">不管是在通勤的路上還是家裡，總有個視線不停遊走在我身上...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=114">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902221844170752202.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">风俗室长</div>
+                                            <div class="novel-descp">一个平凡的上班族在欠下巨额债务后，不得不投身风俗业工作还债，正当其事业蒸蒸日上的时候，却惨遭同事的出卖和陷害锒铛入狱...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=113">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902221815269874586.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">棒球新星</div>
+                                            <div class="novel-descp">许久未联络的恋人，在自己上班的酒店命运般的邂逅，竟已成为职业棒球手...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=111">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902221812148209699.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">呼叫陪练员</div>
+                                            <div class="novel-descp">拳击少女、游泳御姐，自行车女神、短跑女生、拳赛女王、体操仙女、泳衣萝莉，这里面有你喜欢的嘛？</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=109">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902221909424642972.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">死忙的条件</div>
+                                            <div class="novel-descp">就算死也要爱，阳寿就在破处那刹那...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=101">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20190222/201902221801302405782.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">302号房东</div>
+                                            <div class="novel-descp">因为一个诅咒，男主变成了恋爱绝缘体，再又一次的失恋后，买醉的他得到了三颗神秘种子（药），吃下后在兴奋时身体会散发出甜蜜的香气，使得靠近他的女人激动不已...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                    <div class="index-row">
+                        <div class="index-title">
+                            <a class="index-more" href="/Home/Novels?i=17">更多</a>
+                            <span>最新完结</span>
+                        </div>
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=189">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20181206/201812062145328691763.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">校园梦精记</div>
+                                            <div class="novel-descp">谁都有第一次! 青涩又刺激的大学日记</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=187">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20181206/201812062141585138245.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">教练教教我</div>
+                                            <div class="novel-descp">轻力壮男教练、美丽的女老师、五位各有特色的美少女。新感觉系校园三角恋故事热闹开演！</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=186">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20181206/201812062139542324644.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">想象狂热</div>
+                                            <div class="novel-descp">想知道清新高贵的正妹 私底下的模样吗? 就由我 来带你一探究竟。</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=185">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20181202/201812022206312120437.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">潘多拉魔瓶</div>
+                                            <div class="novel-descp">经不住巨大的诱惑，他再次选择打开了“潘多拉魔瓶”，于是灾难发生了...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=183">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20181129/201811292210217453915.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">重生之城</div>
+                                            <div class="novel-descp">为了所爱的女孩...我被做成改造人诞生了。</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 cell-padding">
+                                    <a href="/Home/NovelIndex?NovelId=175">
+                                        <img onerror="this.src = 'http://m49.dmeg88.com/Content/Share/imgs/img_load_error.jpg'" src="http://img.a.0756hhr.com/Upload/Images/NovelCovers/20181122/201811222000225398195.jpg" />
+                                        <div class="mui-media-body">
+                                            <div class="novel-title">伊甸园</div>
+                                            <div class="novel-descp">在动物王国里，存在一种名为“适者生存”的规则，这也适用于人类世界，甚至在高中的教室里也是如此…</div>
+                                        </div>
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+<script src="http://m49.dmeg88.com/Content/Share/js/cookies.js?v=1"></script>
+<script>
+    var slider = mui("#slider");
+    slider.slider({
+        interval: 3000
+    });
+    var sex = getCookie('sex') || 4;
+    $(function () {
+        $('nav .mui-tab-item:eq(0) span').addClass('on');
+    });
+    $('.sex-item').click(function () {
+        sex = $(this).attr('data-sex');
+        setCookie('sex', sex);
+        if (sex == 5) {
+            $('.sex-item').removeClass("woman-background");
+            this.classList.add("man-background");
+        } else {
+            $('.sex-item').removeClass("man-background");
+            this.classList.add("woman-background");
+        }
+        location.href = '/Home/Index?sex=' + sex;
+    });
+    $(function () {
+        var $img = $('<img alt="Top_arrow" class="top_arrow" id="top_arrow" src="http://m49.dmeg88.com/Content/wechat/sup_dr_com/images/to-top.png" />');
+        $("body").append($img);
+        $(window).scroll(
+          function () {
+              $(window).scrollTop() > 20 ? $img.fadeIn(400) : $img.fadeOut(400);
+          });
+        $("body, html").scroll(
+         function () {
+             $("body,html").scrollTop() > 20 ? $img.fadeIn(400) : $img.fadeOut(400);
+         });
+        $img.click(
+         function () {
+             $("body,html").animate({ scrollTop: 0 }, 400);
+         });
+
+        $("#top_arrow").hide(),
+            $(window).scroll(
+                function () {
+                    $(window).scrollTop() > 20 ? $("#top_arrow").fadeIn(400) : $("#top_arrow").fadeOut(400);
+                }),
+            $("body, html").scroll(
+                function () {
+                    $("body,html").scrollTop() > 20 ? $("#top_arrow").fadeIn(400) : $("#top_arrow").fadeOut(400);
+                }),
+            $("#top_arrow").click(
+                function () {
+                    $("body,html").animate({ scrollTop: 0 }, 400);
+                });
+
+    });
+</script>
+    </div>
+    <nav class="mui-bar mui-bar-tab foot">
+        <a class="mui-tab-item my-tab-item" href="/Home/Index">
+            <span class="home-tab"></span>
+        </a>
+        <a class="mui-tab-item my-tab-item" href="/Home/Bookstore">
+            <span class="fenlei-tab"></span>
+        </a>
+        <a class="mui-tab-item my-tab-item" href="/Home/ReadHistory?type=2">
+            <span class="shujia-tab"></span>
+        </a>
+        <a class="mui-tab-item my-tab-item" href="/Home/Personal">
+            <span class="my-tab"></span>
+        </a>
+    </nav>
+<script>
+    mui.init();
+    mui('body').on('tap', 'a', function() { document.location.href = this.href; });
+</script>
+    <script> var _hmt = _hmt || []; (function() {   var hm = document.createElement("script");   hm.src = "https://hm.baidu.com/hm.js?6420083f17d6c0ba9779619e41223be6";   var s = document.getElementsByTagName("script")[0];    s.parentNode.insertBefore(hm, s); })(); </script>
+</body>
+</html>
