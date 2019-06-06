@@ -16,7 +16,7 @@
 
   # canvas 绘制元素图像
 
-     canvas 创建图像有2中方式
+  canvas 创建图像有2中方式
 
    ### context.fill()
 
@@ -26,4 +26,9 @@
 
   ### context.storke()
 
-    
+  `storke()`方法实际上会通过`moveTo()`和`lineTo()`方法来绘制路径，默认颜色是黑色，在进行图像绘制前要先设置图像的样式
+      
+      fillStyle() // 填充的样式
+      storkeStyle() // 边框样式
+      lineWidth() //边框
+
