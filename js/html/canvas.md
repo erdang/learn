@@ -41,11 +41,11 @@
 * width ： 矩形的宽
 * height ： 矩形的高
 
-    //html代码
-    <canvas id="canvas"></canvas>
-    //script代码
-    var canvas = document.getElementById('canvas');
-    var context = canvas.getContext('2d');
-    context.fillRect(0, 0, 100, 100);
-    context.strokeRect(120, 0, 100, 100);
+      //html代码
+      <canvas id="canvas"></canvas>
+      //script代码
+      var canvas = document.getElementById('canvas');
+      var context = canvas.getContext('2d');
+      context.fillRect(0, 0, 100, 100);
+      context.strokeRect(120, 0, 100, 100);
 
