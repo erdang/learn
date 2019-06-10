@@ -55,8 +55,8 @@
 canvas绘制矩形有填充颜色
 我们可以看出，在没有设置颜色的情况下，默认是黑色的。
 我们还可以通过设置  fillStyle 改变其填充颜色。
-		
+
 		context.fillStyle = 'pink';
 		context.fillStyle = 'darkred';
 		context.fillRect(0, 0, 100, 100);
-    context.strokeRect(120, 0, 100, 100);
+		context.strokeRect(120, 0, 100, 100);
