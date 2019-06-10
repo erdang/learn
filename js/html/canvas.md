@@ -89,12 +89,11 @@ canvas绘制矩形有填充颜色
 ![da](https://user-gold-cdn.xitu.io/2017/8/6/524bd9da017d7aa65cb7fdae953b8a6a?imageView2/0/w/1280/h/960)
 
 ###实心圆
-
 		context.arc(x,y,r,startAngle,endAngle,anticlockwise)
 
-*x : 圆心的 x 坐标
-*y：圆心的 y 坐标
-*r ： 半径
-*starAngle ：开始角度
-*endAngle：结束角度
-*anticlockwise ：是否逆时针（true）为逆时针，(false)为顺时针
+* x : 圆心的 x 坐标
+* y：圆心的 y 坐标
+* r ： 半径
+* starAngle ：开始角度
+* endAngle：结束角度
+* anticlockwise ：是否逆时针（true）为逆时针，(false)为顺时针
