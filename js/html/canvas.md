@@ -31,7 +31,7 @@
       fillStyle() // 填充的样式
       storkeStyle() // 边框样式
       lineWidth() //边框
-  #绘制矩形
+  ###绘制矩形
 
       context.fillRect(x,y,width,height)  //实心矩形
       context.strokeRect(x,y,width,height) // 空心矩形 边框
@@ -48,4 +48,6 @@
       var context = canvas.getContext('2d');
       context.fillRect(0, 0, 100, 100);
       context.strokeRect(120, 0, 100, 100);
+显示如下：
 
+![dad](https://user-gold-cdn.xitu.io/2017/8/6/cc19c7de755bed782fa8fb4a1d8ee9cb?imageView2/0/w/1280/h/960)
