@@ -57,6 +57,9 @@ canvas绘制矩形有填充颜色
 我们还可以通过设置  fillStyle 改变其填充颜色。
 
 	context.fillStyle = 'pink';
-	context.fillStyle = 'darkred';
+	context.strokeStyle = 'darkred';
 	context.fillRect(0, 0, 100, 100);
 	context.strokeRect(120, 0, 100, 100);
+
+效果如下：
+![da](https://user-gold-cdn.xitu.io/2017/8/6/09991b15c63f2a1cc40e914a52a69975?imageView2/0/w/1280/h/960)
