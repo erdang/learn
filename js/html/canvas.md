@@ -98,3 +98,41 @@ canvas绘制矩形有填充颜色
 * starAngle ：开始角度
 * endAngle：结束角度
 * anticlockwise ：是否逆时针（true）为逆时针，(false)为顺时针
+
+		context.beginPath();
+		context.arc(300, 350, 100, 0, Math.PI * 2, true);
+		//不关闭路径路径会一直保留下去
+		context.closePath();
+		context.fillStyle='rgba(0,255,0,0.25)';
+		context.fill();
+
+效果如下：
+
+![dasd](https://user-gold-cdn.xitu.io/2017/8/6/227a82ed70cfe4481e64ad07d4665e25?imageView2/0/w/1280/h/960)
+
+###圆弧
+如果不填充颜色，实心圆就是圆弧
+
+		context.beginPath();
+		context.arc(600, 350, 100, 0, Math.PI , true);
+		context.fillStyle= 'pink';
+		context.closePath();
+		context.stroke();
+		
+		context.beginPath();
+		context.arc(300, 350, 100, 0, Math.PI , true);
+		context.strokeStyle = 'red';
+		//没有closePath
+		context.stroke();
+
+效果如下：
+
+![dasd](https://user-gold-cdn.xitu.io/2017/8/6/936b7879e568aff20b207623153aff30?imageView2/0/w/1280/h/960)
+
+* 系统默认在绘制第一个路径的开始点为beginPath
+* 如果画完前面的路径没有重新指定beginPath，那么画第其他路径的时候会将前面最近指定的beginPath后的全部路径重新绘制
+* 每次调用`context.fill()`的时候会自动把当次绘制的路径的开始点和结束点相连，接着填充封闭的部分
+所以说，如果第一个圆弧没有 `closePath()` 并且第二个圆弧没有 `beginPath()` 的话就是这样的效果：
+效果如下：
+
+![dasd](https://user-gold-cdn.xitu.io/2017/8/6/3667a44de2002c97e9fcf910de3fe6ab?imageView2/0/w/1280/h/960)
