@@ -26,9 +26,26 @@
 
   ### context.storke()
 
-  `storke()`方法实际上会通过`moveTo()`和`lineTo()`方法来绘制路径，默认颜色是黑色，在进行图像绘制前要先设置图像的样式
+  `stroke()`方法实际上会通过`moveTo()`和`lineTo()`方法来绘制路径，默认颜色是黑色，在进行图像绘制前要先设置图像的样式
       
       fillStyle() // 填充的样式
       storkeStyle() // 边框样式
       lineWidth() //边框
+  #绘制矩形
+
+      context.fillRect(x,y,width,height)  //实心矩形
+      context.strokeRect(x,y,width,height) // 空心矩形 边框
+
+* x：起始点的X轴坐标
+* y ：起始点的 y 坐标
+* width ： 矩形的宽
+* height ： 矩形的高
+
+    //html代码
+    <canvas id="canvas"></canvas>
+    //script代码
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    context.fillRect(0, 0, 100, 100);
+    context.strokeRect(120, 0, 100, 100);
 
