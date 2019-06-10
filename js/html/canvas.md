@@ -62,4 +62,28 @@ canvas绘制矩形有填充颜色
 	context.strokeRect(120, 0, 100, 100);
 
 效果如下：
+
 ![da](https://user-gold-cdn.xitu.io/2017/8/6/09991b15c63f2a1cc40e914a52a69975?imageView2/0/w/1280/h/960)
+
+###清除矩形区域
+
+	context.clearRect(x,y,width,height);
+
+* x：起始点的X轴坐标
+* y ：起始点的 y 坐标
+* width ： 矩形的宽
+* height ： 矩形的高
+
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext("2d");
+		context.fillRect(0, 0, 100, 100);
+		context.strokeRect(120, 0, 100, 100);
+		context.fillStyle = "pink";
+		context.strokeStyle = "darkred";
+		context.fillRect(0, 120, 100, 100);
+		context.strokeRect(120, 120, 100, 100);
+		context.clearRect( 50,50,120,120)
+
+效果如下：
+
+![da](https://user-gold-cdn.xitu.io/2017/8/6/524bd9da017d7aa65cb7fdae953b8a6a?imageView2/0/w/1280/h/960)
