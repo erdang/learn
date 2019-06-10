@@ -65,7 +65,7 @@ canvas绘制矩形有填充颜色
 
 ![da](https://user-gold-cdn.xitu.io/2017/8/6/09991b15c63f2a1cc40e914a52a69975?imageView2/0/w/1280/h/960)
 
-###清除矩形区域
+### 清除矩形区域
 
 	context.clearRect(x,y,width,height);
 
@@ -88,7 +88,7 @@ canvas绘制矩形有填充颜色
 
 ![da](https://user-gold-cdn.xitu.io/2017/8/6/524bd9da017d7aa65cb7fdae953b8a6a?imageView2/0/w/1280/h/960)
 
-###实心圆
+### 实心圆
 
 		context.arc(x,y,r,startAngle,endAngle,anticlockwise)
 
@@ -110,7 +110,7 @@ canvas绘制矩形有填充颜色
 
 ![dasd](https://user-gold-cdn.xitu.io/2017/8/6/227a82ed70cfe4481e64ad07d4665e25?imageView2/0/w/1280/h/960)
 
-###圆弧
+ ### 圆弧
 如果不填充颜色，实心圆就是圆弧
 
 		context.beginPath();
