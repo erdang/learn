@@ -136,3 +136,41 @@ canvas绘制矩形有填充颜色
 效果如下：
 
 ![dasd](https://user-gold-cdn.xitu.io/2017/8/6/3667a44de2002c97e9fcf910de3fe6ab?imageView2/0/w/1280/h/960)
+
+### 绘制线段
+
+moveTo(x,y)：把路径移动到画布中的指定点，不创建线条
+lineTo(x,y)：添加一个新点，然后在画布中创建从该点到最后指定点的线条
+每次画线都从 moveTo 的点到 lineTo 的点，
+
+		context.strokeStyle = 'pink';
+		context.moveTo(0, 0);
+		context.lineTo(100, 100);
+		context.stroke()
+
+效果如下：
+
+![dasd](https://user-gold-cdn.xitu.io/2017/8/6/e8d17533485e8dc920fe80380a8c5388?imageView2/0/w/1280/h/960)
+
+**如果没有 moveTo 那么第一次 lineTo 的效果和 moveTo 一样**
+
+		context.strokeStyle = 'pink';
+		context.lineTo(100, 100);
+		context.lineTo(200, 200);
+		context.stroke();*/
+
+效果如下：
+
+![dasd](https://user-gold-cdn.xitu.io/2017/8/6/834819be3abe77e8a67b3a0243c0c41a?imageView2/0/w/1280/h/960)
+
+**每次lineTo后如果没有moveTo，那么下次lineTo的开始点为前一次lineTo的结束点**
+
+		context.strokeStyle = 'pink';
+		context.lineTo(200, 200);
+		context.lineTo(200, 100);
+		context.lineTo(100,50);
+		context.stroke();
+
+效果如下：
+
+![dasd](https://user-gold-cdn.xitu.io/2017/8/6/f8061526ed2494228e3eeeaaffaa46d1?imageView2/0/w/1280/h/960)
