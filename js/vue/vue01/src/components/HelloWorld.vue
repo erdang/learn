@@ -66,6 +66,7 @@ export default {
     onAddCart(){
       console.log('lalal');
       
+      
     }
   },
 }
