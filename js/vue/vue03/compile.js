@@ -1,6 +1,6 @@
 // new Compile(el, vm)
 //22
-
+//实现一个指令解析器Compile，对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数
 class Compile {
   constructor(el, vm) {
     this.$vm = vm;
@@ -81,9 +81,11 @@ class Compile {
 
   update(node, vm, exp, dir) {
     let updatrFn = this[dir + "Updater"];
+    //// 第一次初始化视图
     updatrFn && updatrFn(node, vm[exp]);
-    // 依赖收集
+    // 依赖收集 实例化订阅者，此操作会在对应的属性消息订阅器中添加了该订阅者watcher
     new Watcher(vm, exp, function(value) {
+      //一旦属性值有变化，会收到通知执行此更新函数，更新视图
       updatrFn && updatrFn(node, value);
     });
   }

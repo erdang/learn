@@ -24,7 +24,7 @@ class KVue {
     }
   }
 
-  observe(value) {
+  observe(value) {//实现一个数据监听器Observer，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者 
       if (!value || typeof value !== 'object') {
        return;   
       }
@@ -59,30 +59,32 @@ class KVue {
                 val = newVal;
                 // console.log(`${key}更新了：${newVal}`);
                 dep.notify();
+                console.log(dep)
             }
           }
       })
       // 递归
       this.observe(val);
+      
   }
   
 }
-
+//怎么才能通知 订阅者 watcher 这时需要一个 第三者一个数组  收集管理 watcher 采用发布订阅模式  
 class Dep {
     constructor(){
         this.deps = [];
     }
 
-    addDep(dep) {
+    addDep(dep) {//订阅
         this.deps.push(dep)
     }
 
-    notify() {
+    notify() {//发布
         this.deps.forEach(dep => dep.update())
     }
 }
 
-class Watcher {
+class Watcher {//订阅者  实现一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图 
     constructor(vm, key, cb) {
         this.vm = vm;
         this.key = key;

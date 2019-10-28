@@ -31,3 +31,11 @@
   * index?: number 这个我们想想正则表达式中？的含义---0个或者1个，这里其实意义也是一致的，但是要注意?的位置是在冒号之前还是冒号之后--因为这两种可能性都有，上面代码中问号是跟在冒号前面，代表index可以不传，但是传的话一定要传入数字类型；如果问号是在冒号后面的话，则代表这个参数必须要传递，但是可以是数字类型也可以是空
   
   [Vue 开发必须知道的 36 个技巧](https://juejin.im/post/5d9d386fe51d45784d3f8637)
+
+vue 双向数据绑定原理
+
+> vue是采用数据劫持结合发布/订阅模式的方式，通过 Object.defineProperty()来劫持各个属性的 setter，getter，在数据变化的时候发布消息给订阅者，触发相应的函数回调更新
+
+>vue 初始化  生命周期，事件 props methods data 等等，最主要的是通过Object.defineProperty()设置setter，getter，用来实现响应式和依赖收集,然后执行$mound 挂在
+
+[源码 vue](https://github.com/DMQ/mvvm)

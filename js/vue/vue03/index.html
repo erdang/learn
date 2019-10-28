@@ -20,7 +20,7 @@
         <button @click="changeName">呵呵</button>
         <div k-html="html"></div>
     </div>
-    <script src='./kvue.js'></script>
+    <script src='./lvue.js'></script>
     <script src='./compile.js'></script>
 
     <script>
@@ -33,9 +33,11 @@
             },
             created() {
                 console.log('开始啦')
-                setTimeout(() => {
-                    this.name = '我是测试'
-                }, 1500)
+                // setTimeout(() => {
+                //     this.name = '我是测试'
+                // }, 1500)
+                this.name = '我是测试'
+                this.name = '我是测试4444'
             },
             methods: {
                 changeName() {
