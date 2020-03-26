@@ -164,3 +164,56 @@ const fn = ()=>{
 // 尾调用优化允许某些函数的调用被优化，以保持更小的调用栈、使用更少的内存，并防止堆
 // 栈溢出。当能进行安全优化时，它会由引擎自动应用。不过你可以考虑重写递归函数，以便
 // 能够利用这种优化。
+
+
+//Promise.all 限制并发数
+class Limit {
+  constructor (n) {
+    this.limit = n
+    this.count = 0
+    this.queue = []
+  }
+
+  enqueue (fn) {
+    // 关键代码: fn, resolve, reject 统一管理
+    return new Promise((resolve, reject) => {
+      this.queue.push({ fn, resolve, reject })
+    })
+  }
+
+  dequeue () {
+    if (this.count < this.limit && this.queue.length) {
+      // 等到 Promise 计数器小于阈值时，则出队执行
+      const { fn, resolve, reject } = this.queue.shift()
+      this.run(fn).then(resolve).catch(reject)
+    }
+  }
+
+  // async/await 简化错误处理
+  async run (fn) {
+    this.count++
+    // 维护一个计数器
+    const value = await fn()
+    this.count--
+    // 执行完，看看队列有东西没
+    this.dequeue()
+    return value
+  }
+
+  build (fn) {
+    if (this.count < this.limit) {
+      // 如果没有到达阈值，直接执行
+      return this.run(fn)
+    } else {
+      // 如果超出阈值，则先扔到队列中，等待有空闲时执行
+      return this.enqueue(fn)
+    }
+  }
+}
+
+Promise.map = function (list, fn, { concurrency }) {
+  const limit = new Limit(concurrency)
+  return Promise.all(list.map((...args) => {
+    return limit.build(() => fn(...args))
+  }))
+}

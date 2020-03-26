@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chorme=1">
+  <title>Document</title>
+  <style>
+    .av{width: 200px; height: 200px; 
+    margin: 20px; padding: 20px; background: #000;border: 2px solid #fff;}
+    .av2{width: 200px; height: 200px; 
+    margin: 20px; padding: 20px; background: #000;}
+    .av3{overflow: hidden;}
+  </style>
+</head>
+
+<body>
+  <div>2222</div>
+  <div>
+      <div class="av"></div>
+      <div class="av3">
+          <div class="av2"></div>
+      </div>
+      
+  </div>
+  
+  <script>
+    console.log(333);
+  </script>
+  <script src="./a.js" async></script>
+  <script src="./b.js" async></script>
+  <!--[if lte IE 6]>                                             
+  <![endif]-->
+</body>
+
+</html>
+defer anync 都不会阻塞dom的解析 
+defer 当页面解析和渲染完成 和所有defer 加载完毕后 按顺序执行
+anync 异步加载 完成后就执行  顺序可前可后
