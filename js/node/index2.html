@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class HashTable{
+            constructor(){
+                this.items = []
+            }
+            loseloseHashCode(key){
+                //根据组成key的每个字符的ASCII码值的和得到一个数字
+                //从ASCII表中查到 的每个字符对应的ASCII值加到hash变量中
+                //最后，返回hash值
+                //为了得到比较小的数值，我们会使用hash值和一个任意 数做除法的余数(mod)
+                var hash = 0; //{1} 3 
+                for (var i = 0; i < key.length; i++) { //{2}
+                    hash += key.charCodeAt(i);         //{3}
+                }
+                return hash % 37; 
+            }
+            //上面的散列函数 非常容易产生key的冲突
+            // 更好的散列函数
+            djb2HashCode(key) {
+              
+                let hash = 5381;//初始化一个 hash 变量并赋值为一个质数
+                for (let i = 0; i < key.length; i++) {//迭代参数 key
+                hash = (hash * 33) + key.charCodeAt(i);//将 hash 与 33 相乘（用作一个幻数，幻数是指在编程中指直接使用的常数），并和当前迭代到的字符的 ASCII码值相加，
+                }
+                return hash % 1013;
+            }
+            //冲突 处理方法 需要重写三个方法:put、get和remove。
+            //分离链接
+            // 线性探查
+            // 双散列法
+            put(key,value){
+                var position = this.loseloseHashCode(key)
+                this.items[position] = value;
+            }
+            remove(key){
+                this.items[this.loseloseHashCode(key)] = undefined
+            }
+            clear(){
+                this.items = []
+            }
+            get(key){
+                return this.loseloseHashCode(key)
+            }
+            // 分离链接法包括为散列表的每一个位置创建一个链表并将元素存储在里面。它是解决冲突的最简单的方法，但是在 HashTable 实例之外还需要额外的存储空间。 ValuePair表示将要加入 LinkedList实例的元素 ,
+            ValuePair(key,value){
+                this.key = key;
+                this.value = value;
+
+            }
+            //另一种解决冲突的方法是线性探查。当想向表中某个位置加入一个新元素的时候，如果索引 为index的位置已经被占据了，就尝试index+1的位置。如果index+1的位置也被占据了，就尝试 index+2的位置
+            put (key, value){
+                var position = loseloseHashCode(key); // {1}
+                if (table[position] == undefined) { // {2}
+                    table[position] = new ValuePair(key, value); // {3}
+                } else {
+                    var index = ++position; // {4}
+                    while (table[index] != undefined){ // {5}
+                    index++; // {6}
+                    }
+                    table[index] = new ValuePair(key, value); // {7}
+                }
+            }
+            get (key) {
+                var position = loseloseHashCode(key);
+                if (table[position] !== undefined){ //{8}
+                    if (table[position].key === key) { //{9}
+                    return table[position].value; //{10}
+                    } else {
+                    var index = ++position;
+                    while (table[index] === undefined
+                    || table[index].key !== key){ //{11}
+                    index++; }
+                            if (table[index].key === key) { //{12}
+                                return table[index].value; //{13}
+                    } }
+                    }
+                return undefined; //{14}
+            };
+
+
+        }
+
+        function TreeNode(val, left = null, right = null) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+        function getTreeFromLayerOrderArray(array) {
+            let n = array.length;
+            if (!n) return null;
+            let index = 0;
+            let root = new TreeNode(array[index++]);
+            let queue = [root];
+            while(index < n) {
+                let top = queue.shift();
+                let v = array[index++];
+                top.left = v == null ? null : new TreeNode(v);
+                if (index < n) {
+                    let v = array[index++];
+                    top.right = v == null ? null : new TreeNode(v);
+                }
+                if (top.left) queue.push(top.left);
+                if (top.right) queue.push(top.right);
+            }
+            return root;
+        }
+        var preorderTraversal = function(root) {
+            let arr = [];
+            let traverse = (root) => {
+            if(root == null) return;
+                arr.push(root.val);
+                traverse(root.left);
+                traverse(root.right); 
+            }
+            traverse(root);
+            return arr;
+        };
+        console.log(getTreeFromLayerOrderArray([1,null,2,3]))
+
+
+        function find(arr, item) {
+            for(var i = 0; i < arr.length; i++) {
+                if (arr[i].target === item) {
+                    return arr[i];
+                }
+            }
+            return null;
+        }
+const checkedType = function(target){
+  return Object.prototype.toString.call(target).slice(8,-1)
+}
+const deepClone = function(target,uniqueList=[]){
+ 
+ let result, targetType = checkedType(target);
+ if (targetType === 'Object') {
+   result = {};
+ } else if (targetType === 'Array') {
+   result = [];
+ } else {
+   return target;
+ }
+
+ //栈
+ let looplist = [
+   {
+     parent:result,
+     key:undefined,
+     data:target
+   }
+ ]
+  
+  //存在 返回
+   let arr = find(uniqueList,target);
+   
+   if(arr){
+  
+     return arr.result
+   }
+   uniqueList.push({
+     target:target,
+     result:result
+   })
+  // 不存在 保存
+  
+ while(looplist.length){
+   const node = looplist.pop();
+   const parent =  node.parent;
+   const key =  node.key;
+   const data =  node.data;
+   
+   let res = parent;
+   if (typeof key !== 'undefined') {
+       res = parent[key] = {};
+   }
+   for(let k in data) {
+     if (data.hasOwnProperty(k)) {
+         if (typeof data[k] === 'object') {
+             // 下一次循环
+             looplist.push({
+                 parent: res,
+                 key: k,
+                 data: data[k],
+             });
+             console.log(res)
+         } else {
+             res[k] = data[k];
+         }
+     }
+ }
+ }
+ 
+
+ return result;
+}
+var a = {
+    name: "muyiy",
+    book: {
+        title: "You Don't Know JS",
+        price: "45"
+    },
+    a1: undefined,
+    a2: null,
+    a3: 123
+}
+var b = deepClone(a);
+//obj2.c.d = 3;
+console.log(b)
+    </script>
+</body>
+</html>

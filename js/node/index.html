@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我的第一个node</div>
+    <img src="./123.png" alt="">
+</body>
+<script type="text/javascript">
+    var arr = [1,2,3]
+    
+    Array.prototype.reduce=function(callback, initialValue){
+        var previous = initialValue;
+        var k = 0;
+
+        var length = this.length;
+        if(typeof initialValue === 'undefined'){
+            previous = this[0];
+            k = 1;
+        }
+        if(typeof callback === 'function'){
+            for(k;k<length;k++){
+                previous = callback(previous,this[k],k,this)
+            }
+        }
+        return previous
+    }
+    // var p =arr.reduce((prev,next,index,arr)=>{
+    //     return prev+ next
+    // })
+    Array.prototype.map = function(callback,context){
+        var arr = [];
+        if(typeof callback === 'function'){
+           for(var i=0;i<this.length;i++){
+               arr.push(callback.call(context,this[i],i,this))
+           }
+        }
+        return arr;
+    }
+    // var p =arr.map((item,index,arr)=>{
+    //     return item+1
+    // })
+
+    Array.prototype.forEach = function(callback,context){
+        if(typeof callback === 'function'){
+            for(var i=0 ;i<this.length; i++){
+                callback.call(context,this[i],i,this)
+            }
+        }
+    }
+    // var p =arr.forEach((item,index,arr)=>{
+    //    console.log(item)
+    // })
+
+    Array.prototype.filter = function(callback,context){
+        var arr = []
+        if(typeof callback === 'function'){
+            for(var i=0;i<this.length;i++){
+                callback.call(context,this[i],i,this) && arr.push(this[i])
+            }
+        }
+        return arr
+    }
+
+    Array.prototype.some = function (fn, context) {
+        var passed = false;
+        if (typeof fn === "function") {
+            for (var k = 0, length = this.length; k < length; k++) {
+            if (passed === true) break;
+            passed = !!fn.call(context, this[k], k, this);
+        }
+        }
+        return passed;
+    };
+  Array.prototype.every = function (fn, context) {
+        var passed = true;
+        if (typeof fn === "function") {
+        for (var k = 0, length = this.length; k < length; k++) {
+            if (passed === false) break;
+            passed = !!fn.call(context, this[k], k, this);
+        }
+        }
+        return passed;
+    };
+    var p =arr.filter((item,index,arr)=>{
+      return item>2
+    })
+    console.log(p)
+class Yqueue{
+    constructor(element,priority){
+        this.element = element;
+        this.priority = priority
+    }
+
+}
+    class Queue{
+        constructor(){
+            this.items = [];
+        }
+        enqueue(el){
+            var que = new Yqueue(element,priority);
+            var add = false;
+            for(var i=0;i<this.items.length;i++){
+                if(this.items[i].priority>que[i].priority){
+                    this.items.splice(i,0,que[i]);
+                    add = true;
+                    break;
+                }
+            }
+            if(!add){
+                this.items.push(que)
+            }
+            
+        }
+        dequeue(el){
+            return this.item.shift(el);
+        }
+        front(){
+            return this.items[0]
+        }
+        isEmpty(){
+            return this.items.length == 0
+        }
+        size(){
+            return this.items.length;
+        }
+        clear(){
+            this.items = [];
+        }
+    }
+    
+    let Queue2 = (function () {
+      const items = new WeakMap();
+      class Queue2 {
+        constructor () {
+          items.set(this, []);
+        }
+        enqueue(element) {
+          let q = items.get(this);
+          q.push(element);
+        }
+        dequeue() {
+          let q = items.get(this);
+          let r = q.shift();
+          return r;
+        }
+    }
+      return Queue2;
+    })();
+
+    function hotPotato(namelist,num){
+        var queue = new Queue();
+        for(var i=0;i<namelist.length;i++){
+            queue.enqueue(namelist[i]);
+        }
+
+        var enm = '';
+        while(queue.size()>1){
+            for(var i=0;i<num;i++){
+                queue.enqueue(queue.dequeue())
+            }
+            enm = queue.dequeue();//被淘汰
+        }
+        return queue.dequeue();//胜利者
+    }
+
+    class Node{
+        constructor(el){
+            this.el = el;
+            this.next = null;
+            this.prev = null;
+        }
+    }
+
+    class List{
+        constructor(){
+            this.head = null;
+            this.length = 0;
+        }
+        createNode(el){
+            return new Node(el)
+        }
+        insert(newEl,item){
+           var newEl = this.createNode(newEl);
+           var currNode = this.find(item);
+           if( currNode == null ){ //如果为空 表示 插入的是第一个节点
+            newEl.next = null
+            newEl.prev = null;
+            
+           }else{
+            newEl.next = currNode ;
+            newEl.prev = currNode.prev
+            currNode.prev = newEl;
+           }
+           this.head = newEl;
+           this.length++;
+          
+        }
+        find(item){
+            // 从head 开始查找  找到节点 item = item  返回改节点
+            let currNode = this.head;
+            while( currNode !== null && currNode.el !== item ){
+                currNode = currNode.next
+            }
+            return currNode
+
+        }
+        delete(item){
+            //head 指向第一个节点  如果删除的是第一个节点
+            if(item == this.head){
+                this.head = item.next;
+                item.next.prev = null;
+                return;
+            }
+            let prevnode = this.head; //头部开始查找
+            while(prevnode.next !== item){
+                prevnode = prevnode.next; 
+            }
+            //如果删除的是最后一个节点
+            if(item.next == null){
+                prevnode.next = null;
+            }
+            //删除的是中间的节点
+            if(item.next){
+                prevnode.next = item.next;
+                item.next.prev = item.prev;
+            }
+        }
+        ab(){
+            var currNode = this.head;
+
+            while ( currNode.next !== null ){
+                console.log( currNode.next.el );
+                currNode = currNode.next;
+            }
+        }
+    }
+    var bb = new List();
+    bb.insert('a','head')
+    bb.insert('b','a')
+//    bb.insert('c','b')
+ var fn = function(){
+     //console.log(fn)
+     return
+ }
+ fn();
+
+ var currying = function() {
+    // args 获取第一个方法内的全部参数
+  
+    var _this = this;
+    var args = [].slice.call(arguments);
+   
+    return function() {
+        // 将后面方法里的全部参数和args进行合并
+       
+        var newArgs = Array.prototype.slice.call(arguments);
+        var narg = args.concat(newArgs);
+        var money = 0;
+
+        if(newArgs.length){
+            return currying.apply(_this,narg)
+        }else{
+            for (var i = 0, l = narg.length; i < l; i++) {
+                money += narg[i];
+            }
+            return money
+        }
+    }
+}
+
+
+console.log(currying(1,2)())
+console.log(currying(1)(2)())
+
+
+
+function add(x){
+    var f = function(y){
+        if( y === undefined){
+            return x;
+        }
+        x += y;
+        return f
+    }
+    f.toString = f.valueOf = function(){
+        return x;
+    }
+    return f
+}
+console.log(+add(1)(2)(3)(4))
+
+var obj = {
+    
+}
+//console.log(Object.getOwnPropertyDescriptor(obj,'a'))
+let b = null;
+Object.defineProperties(obj,{
+    a:{
+        get(){
+            return b
+        },
+        set(value){
+            console.log(value)
+            b = value
+        }
+    },
+    c:{
+        get(){
+            return b
+        },
+        set(value){
+            console.log(value)
+            b = value
+        }
+    }
+    
+})
+obj.a = 2;
+console.log(obj.a)
+
+var m = Object.create(null,{
+    m:{
+        value:2
+    }
+})
+console.log(m.m)
+
+const checkType = function(target){
+  return Object.prototype.toString.call(target).sclice(8,-1)
+}
+const deepClone = function(target){
+  let result, targetType = checkedType(target);
+  if (targetType === 'Object') {
+    result = {};
+  } else if (targetType === 'Array') {
+    result = [];
+  } else {
+    return target;
+  }
+
+  for(let i in target){
+    if(target.hasOwnProperty(i)){
+      if(checkedType(target[i]) === 'Object' || checkedType(target[i]) === 'Array'){
+        deepClone(target[i]);
+      }else{
+        result[i] = target[i];
+      }
+    }
+    
+  }
+
+  return result;
+}
+</script>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "vue-auto-router",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "kkb": "./bin/kkb"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
+    "handlebars": "^4.7.6",
+    "log-symbols": "^4.0.0",
+    "ora": "^5.1.0"
+  }
+}

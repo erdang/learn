@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+const program = require('commander');
+const {init,refresh} = require('./lib/api.js')
+
+program.version(require('../package').version, '-v', '--version');
+program.command('init <name>').description('init project').action(init);
+program.command('refresh').description('init project').action(refresh);
+program.parse(process.argv);

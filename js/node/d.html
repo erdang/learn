@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>刮刮乐在移动端的使用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 100%;
+            padding: 20px 0;
+            background-color: red;
+        }
+
+        .canvasBox {
+            width: 78%;
+            height: 160px;
+            border-radius: 10px;
+            background-color: #FFF;
+            margin-left: 11%;
+            line-height: 160px;
+            text-align: center;
+            position: relative;
+        }
+
+        #canvas {
+            width: 96%;
+            height: 96%;
+            position: absolute;
+            left: 2%;
+            top: 2%;
+            background-color: transparent;
+        }
+
+        .disappear {
+            -webkit-animation: disa 2s 1;
+            animation: disa 2s 1;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            -o-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes disa {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="canvasBox">
+            <span class="prize">
+                恭喜你，中将100,0000元
+            </span>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var arr = getOffset(canvas); //获取画布偏移量
+        var oLeft = arr[0];
+        var oTop = arr[1];
+
+        //初始化画布
+        ctx.beginPath();
+        ctx.fillStyle = "#ddd";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.closePath();
+
+        //添加触摸监听
+        document.addEventListener("touchstart", () => {
+            //初始化画笔
+            ctx.beginPath();
+            ctx.lineWidth = 100;
+
+            //组合效果
+            ctx.globalCompositeOperation = 'destination-out';
+            /* 移动画笔原点*/
+            // ctx.moveTo(event.touches[0].pageX-oLeft,event.touches[0].pageY-oTop);
+            ctx.arc(event.touches[0].pageX - oLeft, event.touches[0].pageY - oTop, 50, 0, Math.PI * 2);
+        }, false)
+
+        document.addEventListener("touchmove", function () {
+            /* 根据手指移动画线，使之变透明*/
+            ctx.arc(event.touches[0].pageX - oLeft, event.touches[0].pageY - oTop, 50, 0, Math.PI * 2);
+            ctx.fill();
+            // ctx.lineTo(event.touches[0].pageX-oLeft,event.touches[0].pageY-oTop);
+            // /* 填充*/
+            // ctx.stroke();
+        })
+
+
+
+        document.addEventListener("touchend", function () {
+            /* 获取imageData对象*/
+            var imageDate = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            /* */
+            var allPX = imageDate.width * imageDate.height;
+
+            var iNum = 0; //记录刮开的像素点个数
+
+            for (var i = 0; i < allPX; i++) {
+                if (imageDate.data[i * 4 + 3] == 0) {
+                    iNum++;
+                }
+            }
+            console.log(iNum)
+            if (iNum >= allPX * 0.4) {
+                // disappear里面写了缓慢清除的css3动画效果
+                canvas.setAttribute('class', 'disappear');
+            }
+        }, false)
+
+
+
+        /* 之所以会用到下面的那个函数getOffset（obj）
+         * 是因为event.touches[0].pageX、pageY获取的是相对于可视窗口的距离
+         * 而lineTo画笔的定位是根据画布位置定位的
+         * 所以就要先获取到画布(canvas)相对于可视窗口的距离，然后计算得出触摸点相对于画布的距离 
+         * */
+        /* 获取该元素到可视窗口的距离*/
+        function getOffset(obj) {
+            var valLeft = 0,
+                valTop = 0;
+
+            function get(obj) {
+                valLeft += obj.offsetLeft;
+                valTop += obj.offsetTop;
+                /* 不到最外层就一直调用，直到offsetParent为body*/
+                if (obj.offsetParent.tagName != 'BODY') {
+                    get(obj.offsetParent);
+                }
+                return [valLeft, valTop];
+            }
+            return get(obj);
+        }
+
+
+        // 在react项目中
+        // getOffset(obj){
+        //     return this.get(obj);
+        // }
+        // valLeft =0;
+        // valTop =0;
+        // get(obj){
+        //     this.valLeft += obj.offsetLeft;
+        //     this.valTop += obj.offsetTop;
+        //     /* 不到最外层就一直调用，直到offsetParent为body*/
+        //     // console.log(obj.parentNode.tagName,"vvvvvvvvvvvvvvv")
+        //     if (obj.parentNode.tagName!='BODY') {
+        //         this.get(obj.parentNode);
+        //     }
+        //     return [this.valLeft,this.valTop];
+        // }
+    </script>
+</body>
+
+</html>

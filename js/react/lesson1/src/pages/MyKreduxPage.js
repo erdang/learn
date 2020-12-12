@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import store from '../store/MyKreduxStore';
 
+
 class ReduxPage extends Component {
+    
     componentDidMount(){
         store.subscribe(()=>{
             this.forceUpdate();
@@ -30,4 +32,6 @@ class ReduxPage extends Component {
     );
   }
 }
+
+
 export default ReduxPage
